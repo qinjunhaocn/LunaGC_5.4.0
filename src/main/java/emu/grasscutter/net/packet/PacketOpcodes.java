@@ -128,6 +128,11 @@ public final class PacketOpcodes {
     public static final int WeaponPromoteRsp = 23165;
     public static final int WeaponUpgradeReq = 4288;
     public static final int WeaponUpgradeRsp = 28949;
+    public static final int AvatarChangeCostumeNotify = 23488;
+    public static final int AvatarGainFlycloakNotify = 8523;
+    public static final int EntityPropNotify = 9048;
+    public static final int AvatarFightPropNotify = 23813;
+    public static final int AvatarFightPropUpdateNotify = 2832;
 
     // leaving outdated for no reason
     public static final int PlayerSetPauseReq = 26188;
@@ -136,10 +141,9 @@ public final class PacketOpcodes {
     public static final int WorldOwnerDailyTaskNotify = 13767;
 
     // unk 
-    public static final int AvatarChangeCostumeNotify = 1111111111;
+    
     public static final int ChangeAvatarRsp = 1111111111; // huh
     public static final int ActivityInfoNotify = 1111111111;
-    public static final int AvatarGainFlycloakNotify = 1111111111;
     public static final int AddQuestContentProgressReq = 1111111111; //unk
     public static final int AddQuestContentProgressRsp = 1111111111; //unk
     public static final int CutSceneBeginNotify = 1111111111; //unk, who cares
@@ -268,7 +272,6 @@ public final class PacketOpcodes {
     public static final int WorldPlayerDieNotify = 1111111111;
     public static final int WorldPlayerReviveReq = 1111111111;
     public static final int WorldPlayerReviveRsp = 1111111111;
-    public static final int EntityPropNotify = 1111111111;
     public static final int GetFriendShowAvatarInfoRsp = 1111111111;
     public static final int GetPlayerBlacklistReq = 1111111111;
     public static final int GetPlayerAskFriendListReq = 1111111111;
@@ -472,8 +475,6 @@ public final class PacketOpcodes {
     public static final int ChangeMpTeamAvatarRsp = 1111111111;
     public static final int SkipPlayerGameTimeReq = 1111111111;
     public static final int SkipPlayerGameTimeRsp = 1111111111;
-    public static final int AvatarFightPropNotify = 1111111111;
-    public static final int AvatarFightPropUpdateNotify = 1111111111;
     public static final int AvatarSkillChangeNotify = 1111111111;
     public static final int AvatarSkillDepotChangeNotify = 1111111111;
     public static final int AvatarPropChangeReasonNotify = 1111111111;
