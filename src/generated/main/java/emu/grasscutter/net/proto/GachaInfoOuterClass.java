@@ -19,11 +19,19 @@ public final class GachaInfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *same as over_sea record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url_oversea = 12;</code>
      * @return The gachaProbUrlOversea.
      */
     java.lang.String getGachaProbUrlOversea();
     /**
+     * <pre>
+     *same as over_sea record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url_oversea = 12;</code>
      * @return The bytes for gachaProbUrlOversea.
      */
@@ -31,16 +39,28 @@ public final class GachaInfoOuterClass {
         getGachaProbUrlOverseaBytes();
 
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_up5_item_list = 786;</code>
      * @return A list containing the displayUp5ItemList.
      */
     java.util.List<java.lang.Integer> getDisplayUp5ItemListList();
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_up5_item_list = 786;</code>
      * @return The count of displayUp5ItemList.
      */
     int getDisplayUp5ItemListCount();
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_up5_item_list = 786;</code>
      * @param index The index of the element to return.
      * @return The displayUp5ItemList at the given index.
@@ -48,11 +68,19 @@ public final class GachaInfoOuterClass {
     int getDisplayUp5ItemList(int index);
 
     /**
+     * <pre>
+     *probably
+     * </pre>
+     *
      * <code>string gacha_preview_prefab_path = 1;</code>
      * @return The gachaPreviewPrefabPath.
      */
     java.lang.String getGachaPreviewPrefabPath();
     /**
+     * <pre>
+     *probably
+     * </pre>
+     *
      * <code>string gacha_preview_prefab_path = 1;</code>
      * @return The bytes for gachaPreviewPrefabPath.
      */
@@ -72,16 +100,28 @@ public final class GachaInfoOuterClass {
         getGachaPrefabPathBytes();
 
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>repeated uint32 display_up4_item_list = 914;</code>
      * @return A list containing the displayUp4ItemList.
      */
     java.util.List<java.lang.Integer> getDisplayUp4ItemListList();
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>repeated uint32 display_up4_item_list = 914;</code>
      * @return The count of displayUp4ItemList.
      */
     int getDisplayUp4ItemListCount();
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>repeated uint32 display_up4_item_list = 914;</code>
      * @param index The index of the element to return.
      * @return The displayUp4ItemList at the given index.
@@ -89,11 +129,19 @@ public final class GachaInfoOuterClass {
     int getDisplayUp4ItemList(int index);
 
     /**
+     * <pre>
+     *same as prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url = 14;</code>
      * @return The gachaProbUrl.
      */
     java.lang.String getGachaProbUrl();
     /**
+     * <pre>
+     *same as prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url = 14;</code>
      * @return The bytes for gachaProbUrl.
      */
@@ -113,11 +161,19 @@ public final class GachaInfoOuterClass {
         getTitleTextmapBytes();
 
     /**
+     * <pre>
+     *same as oversea prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url_oversea = 1736;</code>
      * @return The gachaRecordUrlOversea.
      */
     java.lang.String getGachaRecordUrlOversea();
     /**
+     * <pre>
+     *same as oversea prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url_oversea = 1736;</code>
      * @return The bytes for gachaRecordUrlOversea.
      */
@@ -125,16 +181,28 @@ public final class GachaInfoOuterClass {
         getGachaRecordUrlOverseaBytes();
 
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
      * @return A list containing the displayChronicle5ItemList.
      */
     java.util.List<java.lang.Integer> getDisplayChronicle5ItemListList();
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
      * @return The count of displayChronicle5ItemList.
      */
     int getDisplayChronicle5ItemListCount();
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
      * @param index The index of the element to return.
      * @return The displayChronicle5ItemList at the given index.
@@ -166,11 +234,19 @@ public final class GachaInfoOuterClass {
         int index);
 
     /**
+     * <pre>
+     *same as record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url = 1642;</code>
      * @return The gachaRecordUrl.
      */
     java.lang.String getGachaRecordUrl();
     /**
+     * <pre>
+     *same as record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url = 1642;</code>
      * @return The bytes for gachaRecordUrl.
      */
@@ -178,12 +254,20 @@ public final class GachaInfoOuterClass {
         getGachaRecordUrlBytes();
 
     /**
+     * <pre>
+     * probably
+     * </pre>
+     *
      * <code>uint32 wish_item_id = 1970;</code>
      * @return The wishItemId.
      */
     int getWishItemId();
 
     /**
+     * <pre>
+     * maybe ten cost item id
+     * </pre>
+     *
      * <code>uint32 gacha_times_limit = 8;</code>
      * @return The gachaTimesLimit.
      */
@@ -202,12 +286,20 @@ public final class GachaInfoOuterClass {
     int getTenCostItemNum();
 
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 wish_progress = 1596;</code>
      * @return The wishProgress.
      */
     int getWishProgress();
 
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 cur_schedule_daily_gacha_times = 1683;</code>
      * @return The curScheduleDailyGachaTimes.
      */
@@ -220,18 +312,30 @@ public final class GachaInfoOuterClass {
     int getBeginTime();
 
     /**
+     * <pre>
+     * maybe gacha times limit
+     * </pre>
+     *
      * <code>uint32 ten_cost_item_id = 5;</code>
      * @return The tenCostItemId.
      */
     int getTenCostItemId();
 
     /**
+     * <pre>
+     * could be the other bool
+     * </pre>
+     *
      * <code>bool new_bool = 235;</code>
      * @return The newBool.
      */
     boolean getNewBool();
 
     /**
+     * <pre>
+     * could be the other bool
+     * </pre>
+     *
      * <code>bool is_new_wish = 1865;</code>
      * @return The isNewWish.
      */
@@ -250,12 +354,20 @@ public final class GachaInfoOuterClass {
     int getGachaType();
 
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 wish_max_progress = 1732;</code>
      * @return The wishMaxProgress.
      */
     int getWishMaxProgress();
 
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 left_gacha_times = 4;</code>
      * @return The leftGachaTimes.
      */
@@ -582,6 +694,10 @@ public final class GachaInfoOuterClass {
     public static final int GACHA_PROB_URL_OVERSEA_FIELD_NUMBER = 12;
     private volatile java.lang.Object gachaProbUrlOversea_;
     /**
+     * <pre>
+     *same as over_sea record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url_oversea = 12;</code>
      * @return The gachaProbUrlOversea.
      */
@@ -599,6 +715,10 @@ public final class GachaInfoOuterClass {
       }
     }
     /**
+     * <pre>
+     *same as over_sea record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url_oversea = 12;</code>
      * @return The bytes for gachaProbUrlOversea.
      */
@@ -620,6 +740,10 @@ public final class GachaInfoOuterClass {
     public static final int DISPLAY_UP5_ITEM_LIST_FIELD_NUMBER = 786;
     private com.google.protobuf.Internal.IntList displayUp5ItemList_;
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_up5_item_list = 786;</code>
      * @return A list containing the displayUp5ItemList.
      */
@@ -629,6 +753,10 @@ public final class GachaInfoOuterClass {
       return displayUp5ItemList_;
     }
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_up5_item_list = 786;</code>
      * @return The count of displayUp5ItemList.
      */
@@ -636,6 +764,10 @@ public final class GachaInfoOuterClass {
       return displayUp5ItemList_.size();
     }
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_up5_item_list = 786;</code>
      * @param index The index of the element to return.
      * @return The displayUp5ItemList at the given index.
@@ -648,6 +780,10 @@ public final class GachaInfoOuterClass {
     public static final int GACHA_PREVIEW_PREFAB_PATH_FIELD_NUMBER = 1;
     private volatile java.lang.Object gachaPreviewPrefabPath_;
     /**
+     * <pre>
+     *probably
+     * </pre>
+     *
      * <code>string gacha_preview_prefab_path = 1;</code>
      * @return The gachaPreviewPrefabPath.
      */
@@ -665,6 +801,10 @@ public final class GachaInfoOuterClass {
       }
     }
     /**
+     * <pre>
+     *probably
+     * </pre>
+     *
      * <code>string gacha_preview_prefab_path = 1;</code>
      * @return The bytes for gachaPreviewPrefabPath.
      */
@@ -724,6 +864,10 @@ public final class GachaInfoOuterClass {
     public static final int DISPLAY_UP4_ITEM_LIST_FIELD_NUMBER = 914;
     private com.google.protobuf.Internal.IntList displayUp4ItemList_;
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>repeated uint32 display_up4_item_list = 914;</code>
      * @return A list containing the displayUp4ItemList.
      */
@@ -733,6 +877,10 @@ public final class GachaInfoOuterClass {
       return displayUp4ItemList_;
     }
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>repeated uint32 display_up4_item_list = 914;</code>
      * @return The count of displayUp4ItemList.
      */
@@ -740,6 +888,10 @@ public final class GachaInfoOuterClass {
       return displayUp4ItemList_.size();
     }
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>repeated uint32 display_up4_item_list = 914;</code>
      * @param index The index of the element to return.
      * @return The displayUp4ItemList at the given index.
@@ -752,6 +904,10 @@ public final class GachaInfoOuterClass {
     public static final int GACHA_PROB_URL_FIELD_NUMBER = 14;
     private volatile java.lang.Object gachaProbUrl_;
     /**
+     * <pre>
+     *same as prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url = 14;</code>
      * @return The gachaProbUrl.
      */
@@ -769,6 +925,10 @@ public final class GachaInfoOuterClass {
       }
     }
     /**
+     * <pre>
+     *same as prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_prob_url = 14;</code>
      * @return The bytes for gachaProbUrl.
      */
@@ -828,6 +988,10 @@ public final class GachaInfoOuterClass {
     public static final int GACHA_RECORD_URL_OVERSEA_FIELD_NUMBER = 1736;
     private volatile java.lang.Object gachaRecordUrlOversea_;
     /**
+     * <pre>
+     *same as oversea prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url_oversea = 1736;</code>
      * @return The gachaRecordUrlOversea.
      */
@@ -845,6 +1009,10 @@ public final class GachaInfoOuterClass {
       }
     }
     /**
+     * <pre>
+     *same as oversea prob, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url_oversea = 1736;</code>
      * @return The bytes for gachaRecordUrlOversea.
      */
@@ -866,6 +1034,10 @@ public final class GachaInfoOuterClass {
     public static final int DISPLAY_CHRONICLE_5_ITEM_LIST_FIELD_NUMBER = 1609;
     private com.google.protobuf.Internal.IntList displayChronicle5ItemList_;
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
      * @return A list containing the displayChronicle5ItemList.
      */
@@ -875,6 +1047,10 @@ public final class GachaInfoOuterClass {
       return displayChronicle5ItemList_;
     }
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
      * @return The count of displayChronicle5ItemList.
      */
@@ -882,6 +1058,10 @@ public final class GachaInfoOuterClass {
       return displayChronicle5ItemList_.size();
     }
     /**
+     * <pre>
+     *either chronicle or 5 up
+     * </pre>
+     *
      * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
      * @param index The index of the element to return.
      * @return The displayChronicle5ItemList at the given index.
@@ -934,6 +1114,10 @@ public final class GachaInfoOuterClass {
     public static final int GACHA_RECORD_URL_FIELD_NUMBER = 1642;
     private volatile java.lang.Object gachaRecordUrl_;
     /**
+     * <pre>
+     *same as record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url = 1642;</code>
      * @return The gachaRecordUrl.
      */
@@ -951,6 +1135,10 @@ public final class GachaInfoOuterClass {
       }
     }
     /**
+     * <pre>
+     *same as record, so it doesnt matter
+     * </pre>
+     *
      * <code>string gacha_record_url = 1642;</code>
      * @return The bytes for gachaRecordUrl.
      */
@@ -972,6 +1160,10 @@ public final class GachaInfoOuterClass {
     public static final int WISH_ITEM_ID_FIELD_NUMBER = 1970;
     private int wishItemId_;
     /**
+     * <pre>
+     * probably
+     * </pre>
+     *
      * <code>uint32 wish_item_id = 1970;</code>
      * @return The wishItemId.
      */
@@ -983,6 +1175,10 @@ public final class GachaInfoOuterClass {
     public static final int GACHA_TIMES_LIMIT_FIELD_NUMBER = 8;
     private int gachaTimesLimit_;
     /**
+     * <pre>
+     * maybe ten cost item id
+     * </pre>
+     *
      * <code>uint32 gacha_times_limit = 8;</code>
      * @return The gachaTimesLimit.
      */
@@ -1016,6 +1212,10 @@ public final class GachaInfoOuterClass {
     public static final int WISH_PROGRESS_FIELD_NUMBER = 1596;
     private int wishProgress_;
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 wish_progress = 1596;</code>
      * @return The wishProgress.
      */
@@ -1027,6 +1227,10 @@ public final class GachaInfoOuterClass {
     public static final int CUR_SCHEDULE_DAILY_GACHA_TIMES_FIELD_NUMBER = 1683;
     private int curScheduleDailyGachaTimes_;
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 cur_schedule_daily_gacha_times = 1683;</code>
      * @return The curScheduleDailyGachaTimes.
      */
@@ -1049,6 +1253,10 @@ public final class GachaInfoOuterClass {
     public static final int TEN_COST_ITEM_ID_FIELD_NUMBER = 5;
     private int tenCostItemId_;
     /**
+     * <pre>
+     * maybe gacha times limit
+     * </pre>
+     *
      * <code>uint32 ten_cost_item_id = 5;</code>
      * @return The tenCostItemId.
      */
@@ -1060,6 +1268,10 @@ public final class GachaInfoOuterClass {
     public static final int NEW_BOOL_FIELD_NUMBER = 235;
     private boolean newBool_;
     /**
+     * <pre>
+     * could be the other bool
+     * </pre>
+     *
      * <code>bool new_bool = 235;</code>
      * @return The newBool.
      */
@@ -1071,6 +1283,10 @@ public final class GachaInfoOuterClass {
     public static final int IS_NEW_WISH_FIELD_NUMBER = 1865;
     private boolean isNewWish_;
     /**
+     * <pre>
+     * could be the other bool
+     * </pre>
+     *
      * <code>bool is_new_wish = 1865;</code>
      * @return The isNewWish.
      */
@@ -1104,6 +1320,10 @@ public final class GachaInfoOuterClass {
     public static final int WISH_MAX_PROGRESS_FIELD_NUMBER = 1732;
     private int wishMaxProgress_;
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 wish_max_progress = 1732;</code>
      * @return The wishMaxProgress.
      */
@@ -1115,6 +1335,10 @@ public final class GachaInfoOuterClass {
     public static final int LEFT_GACHA_TIMES_FIELD_NUMBER = 4;
     private int leftGachaTimes_;
     /**
+     * <pre>
+     *idk
+     * </pre>
+     *
      * <code>uint32 left_gacha_times = 4;</code>
      * @return The leftGachaTimes.
      */
@@ -2043,6 +2267,10 @@ public final class GachaInfoOuterClass {
 
       private java.lang.Object gachaProbUrlOversea_ = "";
       /**
+       * <pre>
+       *same as over_sea record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url_oversea = 12;</code>
        * @return The gachaProbUrlOversea.
        */
@@ -2059,6 +2287,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as over_sea record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url_oversea = 12;</code>
        * @return The bytes for gachaProbUrlOversea.
        */
@@ -2076,6 +2308,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as over_sea record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url_oversea = 12;</code>
        * @param value The gachaProbUrlOversea to set.
        * @return This builder for chaining.
@@ -2091,6 +2327,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as over_sea record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url_oversea = 12;</code>
        * @return This builder for chaining.
        */
@@ -2101,6 +2341,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as over_sea record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url_oversea = 12;</code>
        * @param value The bytes for gachaProbUrlOversea to set.
        * @return This builder for chaining.
@@ -2125,6 +2369,10 @@ public final class GachaInfoOuterClass {
          }
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @return A list containing the displayUp5ItemList.
        */
@@ -2134,6 +2382,10 @@ public final class GachaInfoOuterClass {
                  java.util.Collections.unmodifiableList(displayUp5ItemList_) : displayUp5ItemList_;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @return The count of displayUp5ItemList.
        */
@@ -2141,6 +2393,10 @@ public final class GachaInfoOuterClass {
         return displayUp5ItemList_.size();
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @param index The index of the element to return.
        * @return The displayUp5ItemList at the given index.
@@ -2149,6 +2405,10 @@ public final class GachaInfoOuterClass {
         return displayUp5ItemList_.getInt(index);
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @param index The index to set the value at.
        * @param value The displayUp5ItemList to set.
@@ -2162,6 +2422,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @param value The displayUp5ItemList to add.
        * @return This builder for chaining.
@@ -2173,6 +2437,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @param values The displayUp5ItemList to add.
        * @return This builder for chaining.
@@ -2186,6 +2454,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_up5_item_list = 786;</code>
        * @return This builder for chaining.
        */
@@ -2198,6 +2470,10 @@ public final class GachaInfoOuterClass {
 
       private java.lang.Object gachaPreviewPrefabPath_ = "";
       /**
+       * <pre>
+       *probably
+       * </pre>
+       *
        * <code>string gacha_preview_prefab_path = 1;</code>
        * @return The gachaPreviewPrefabPath.
        */
@@ -2214,6 +2490,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *probably
+       * </pre>
+       *
        * <code>string gacha_preview_prefab_path = 1;</code>
        * @return The bytes for gachaPreviewPrefabPath.
        */
@@ -2231,6 +2511,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *probably
+       * </pre>
+       *
        * <code>string gacha_preview_prefab_path = 1;</code>
        * @param value The gachaPreviewPrefabPath to set.
        * @return This builder for chaining.
@@ -2246,6 +2530,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *probably
+       * </pre>
+       *
        * <code>string gacha_preview_prefab_path = 1;</code>
        * @return This builder for chaining.
        */
@@ -2256,6 +2544,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *probably
+       * </pre>
+       *
        * <code>string gacha_preview_prefab_path = 1;</code>
        * @param value The bytes for gachaPreviewPrefabPath to set.
        * @return This builder for chaining.
@@ -2356,6 +2648,10 @@ public final class GachaInfoOuterClass {
          }
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @return A list containing the displayUp4ItemList.
        */
@@ -2365,6 +2661,10 @@ public final class GachaInfoOuterClass {
                  java.util.Collections.unmodifiableList(displayUp4ItemList_) : displayUp4ItemList_;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @return The count of displayUp4ItemList.
        */
@@ -2372,6 +2672,10 @@ public final class GachaInfoOuterClass {
         return displayUp4ItemList_.size();
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @param index The index of the element to return.
        * @return The displayUp4ItemList at the given index.
@@ -2380,6 +2684,10 @@ public final class GachaInfoOuterClass {
         return displayUp4ItemList_.getInt(index);
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @param index The index to set the value at.
        * @param value The displayUp4ItemList to set.
@@ -2393,6 +2701,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @param value The displayUp4ItemList to add.
        * @return This builder for chaining.
@@ -2404,6 +2716,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @param values The displayUp4ItemList to add.
        * @return This builder for chaining.
@@ -2417,6 +2733,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>repeated uint32 display_up4_item_list = 914;</code>
        * @return This builder for chaining.
        */
@@ -2429,6 +2749,10 @@ public final class GachaInfoOuterClass {
 
       private java.lang.Object gachaProbUrl_ = "";
       /**
+       * <pre>
+       *same as prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url = 14;</code>
        * @return The gachaProbUrl.
        */
@@ -2445,6 +2769,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url = 14;</code>
        * @return The bytes for gachaProbUrl.
        */
@@ -2462,6 +2790,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url = 14;</code>
        * @param value The gachaProbUrl to set.
        * @return This builder for chaining.
@@ -2477,6 +2809,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url = 14;</code>
        * @return This builder for chaining.
        */
@@ -2487,6 +2823,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_prob_url = 14;</code>
        * @param value The bytes for gachaProbUrl to set.
        * @return This builder for chaining.
@@ -2581,6 +2921,10 @@ public final class GachaInfoOuterClass {
 
       private java.lang.Object gachaRecordUrlOversea_ = "";
       /**
+       * <pre>
+       *same as oversea prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url_oversea = 1736;</code>
        * @return The gachaRecordUrlOversea.
        */
@@ -2597,6 +2941,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as oversea prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url_oversea = 1736;</code>
        * @return The bytes for gachaRecordUrlOversea.
        */
@@ -2614,6 +2962,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as oversea prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url_oversea = 1736;</code>
        * @param value The gachaRecordUrlOversea to set.
        * @return This builder for chaining.
@@ -2629,6 +2981,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as oversea prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url_oversea = 1736;</code>
        * @return This builder for chaining.
        */
@@ -2639,6 +2995,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as oversea prob, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url_oversea = 1736;</code>
        * @param value The bytes for gachaRecordUrlOversea to set.
        * @return This builder for chaining.
@@ -2663,6 +3023,10 @@ public final class GachaInfoOuterClass {
          }
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @return A list containing the displayChronicle5ItemList.
        */
@@ -2672,6 +3036,10 @@ public final class GachaInfoOuterClass {
                  java.util.Collections.unmodifiableList(displayChronicle5ItemList_) : displayChronicle5ItemList_;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @return The count of displayChronicle5ItemList.
        */
@@ -2679,6 +3047,10 @@ public final class GachaInfoOuterClass {
         return displayChronicle5ItemList_.size();
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @param index The index of the element to return.
        * @return The displayChronicle5ItemList at the given index.
@@ -2687,6 +3059,10 @@ public final class GachaInfoOuterClass {
         return displayChronicle5ItemList_.getInt(index);
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @param index The index to set the value at.
        * @param value The displayChronicle5ItemList to set.
@@ -2700,6 +3076,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @param value The displayChronicle5ItemList to add.
        * @return This builder for chaining.
@@ -2711,6 +3091,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @param values The displayChronicle5ItemList to add.
        * @return This builder for chaining.
@@ -2724,6 +3108,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *either chronicle or 5 up
+       * </pre>
+       *
        * <code>repeated uint32 display_chronicle_5_item_list = 1609;</code>
        * @return This builder for chaining.
        */
@@ -2976,6 +3364,10 @@ public final class GachaInfoOuterClass {
 
       private java.lang.Object gachaRecordUrl_ = "";
       /**
+       * <pre>
+       *same as record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url = 1642;</code>
        * @return The gachaRecordUrl.
        */
@@ -2992,6 +3384,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url = 1642;</code>
        * @return The bytes for gachaRecordUrl.
        */
@@ -3009,6 +3405,10 @@ public final class GachaInfoOuterClass {
         }
       }
       /**
+       * <pre>
+       *same as record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url = 1642;</code>
        * @param value The gachaRecordUrl to set.
        * @return This builder for chaining.
@@ -3024,6 +3424,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url = 1642;</code>
        * @return This builder for chaining.
        */
@@ -3034,6 +3438,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *same as record, so it doesnt matter
+       * </pre>
+       *
        * <code>string gacha_record_url = 1642;</code>
        * @param value The bytes for gachaRecordUrl to set.
        * @return This builder for chaining.
@@ -3052,6 +3460,10 @@ public final class GachaInfoOuterClass {
 
       private int wishItemId_ ;
       /**
+       * <pre>
+       * probably
+       * </pre>
+       *
        * <code>uint32 wish_item_id = 1970;</code>
        * @return The wishItemId.
        */
@@ -3060,6 +3472,10 @@ public final class GachaInfoOuterClass {
         return wishItemId_;
       }
       /**
+       * <pre>
+       * probably
+       * </pre>
+       *
        * <code>uint32 wish_item_id = 1970;</code>
        * @param value The wishItemId to set.
        * @return This builder for chaining.
@@ -3071,6 +3487,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * probably
+       * </pre>
+       *
        * <code>uint32 wish_item_id = 1970;</code>
        * @return This builder for chaining.
        */
@@ -3083,6 +3503,10 @@ public final class GachaInfoOuterClass {
 
       private int gachaTimesLimit_ ;
       /**
+       * <pre>
+       * maybe ten cost item id
+       * </pre>
+       *
        * <code>uint32 gacha_times_limit = 8;</code>
        * @return The gachaTimesLimit.
        */
@@ -3091,6 +3515,10 @@ public final class GachaInfoOuterClass {
         return gachaTimesLimit_;
       }
       /**
+       * <pre>
+       * maybe ten cost item id
+       * </pre>
+       *
        * <code>uint32 gacha_times_limit = 8;</code>
        * @param value The gachaTimesLimit to set.
        * @return This builder for chaining.
@@ -3102,6 +3530,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * maybe ten cost item id
+       * </pre>
+       *
        * <code>uint32 gacha_times_limit = 8;</code>
        * @return This builder for chaining.
        */
@@ -3176,6 +3608,10 @@ public final class GachaInfoOuterClass {
 
       private int wishProgress_ ;
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 wish_progress = 1596;</code>
        * @return The wishProgress.
        */
@@ -3184,6 +3620,10 @@ public final class GachaInfoOuterClass {
         return wishProgress_;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 wish_progress = 1596;</code>
        * @param value The wishProgress to set.
        * @return This builder for chaining.
@@ -3195,6 +3635,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 wish_progress = 1596;</code>
        * @return This builder for chaining.
        */
@@ -3207,6 +3651,10 @@ public final class GachaInfoOuterClass {
 
       private int curScheduleDailyGachaTimes_ ;
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 cur_schedule_daily_gacha_times = 1683;</code>
        * @return The curScheduleDailyGachaTimes.
        */
@@ -3215,6 +3663,10 @@ public final class GachaInfoOuterClass {
         return curScheduleDailyGachaTimes_;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 cur_schedule_daily_gacha_times = 1683;</code>
        * @param value The curScheduleDailyGachaTimes to set.
        * @return This builder for chaining.
@@ -3226,6 +3678,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 cur_schedule_daily_gacha_times = 1683;</code>
        * @return This builder for chaining.
        */
@@ -3269,6 +3725,10 @@ public final class GachaInfoOuterClass {
 
       private int tenCostItemId_ ;
       /**
+       * <pre>
+       * maybe gacha times limit
+       * </pre>
+       *
        * <code>uint32 ten_cost_item_id = 5;</code>
        * @return The tenCostItemId.
        */
@@ -3277,6 +3737,10 @@ public final class GachaInfoOuterClass {
         return tenCostItemId_;
       }
       /**
+       * <pre>
+       * maybe gacha times limit
+       * </pre>
+       *
        * <code>uint32 ten_cost_item_id = 5;</code>
        * @param value The tenCostItemId to set.
        * @return This builder for chaining.
@@ -3288,6 +3752,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * maybe gacha times limit
+       * </pre>
+       *
        * <code>uint32 ten_cost_item_id = 5;</code>
        * @return This builder for chaining.
        */
@@ -3300,6 +3768,10 @@ public final class GachaInfoOuterClass {
 
       private boolean newBool_ ;
       /**
+       * <pre>
+       * could be the other bool
+       * </pre>
+       *
        * <code>bool new_bool = 235;</code>
        * @return The newBool.
        */
@@ -3308,6 +3780,10 @@ public final class GachaInfoOuterClass {
         return newBool_;
       }
       /**
+       * <pre>
+       * could be the other bool
+       * </pre>
+       *
        * <code>bool new_bool = 235;</code>
        * @param value The newBool to set.
        * @return This builder for chaining.
@@ -3319,6 +3795,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * could be the other bool
+       * </pre>
+       *
        * <code>bool new_bool = 235;</code>
        * @return This builder for chaining.
        */
@@ -3331,6 +3811,10 @@ public final class GachaInfoOuterClass {
 
       private boolean isNewWish_ ;
       /**
+       * <pre>
+       * could be the other bool
+       * </pre>
+       *
        * <code>bool is_new_wish = 1865;</code>
        * @return The isNewWish.
        */
@@ -3339,6 +3823,10 @@ public final class GachaInfoOuterClass {
         return isNewWish_;
       }
       /**
+       * <pre>
+       * could be the other bool
+       * </pre>
+       *
        * <code>bool is_new_wish = 1865;</code>
        * @param value The isNewWish to set.
        * @return This builder for chaining.
@@ -3350,6 +3838,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * could be the other bool
+       * </pre>
+       *
        * <code>bool is_new_wish = 1865;</code>
        * @return This builder for chaining.
        */
@@ -3424,6 +3916,10 @@ public final class GachaInfoOuterClass {
 
       private int wishMaxProgress_ ;
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 wish_max_progress = 1732;</code>
        * @return The wishMaxProgress.
        */
@@ -3432,6 +3928,10 @@ public final class GachaInfoOuterClass {
         return wishMaxProgress_;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 wish_max_progress = 1732;</code>
        * @param value The wishMaxProgress to set.
        * @return This builder for chaining.
@@ -3443,6 +3943,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 wish_max_progress = 1732;</code>
        * @return This builder for chaining.
        */
@@ -3455,6 +3959,10 @@ public final class GachaInfoOuterClass {
 
       private int leftGachaTimes_ ;
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 left_gacha_times = 4;</code>
        * @return The leftGachaTimes.
        */
@@ -3463,6 +3971,10 @@ public final class GachaInfoOuterClass {
         return leftGachaTimes_;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 left_gacha_times = 4;</code>
        * @param value The leftGachaTimes to set.
        * @return This builder for chaining.
@@ -3474,6 +3986,10 @@ public final class GachaInfoOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *idk
+       * </pre>
+       *
        * <code>uint32 left_gacha_times = 4;</code>
        * @return This builder for chaining.
        */

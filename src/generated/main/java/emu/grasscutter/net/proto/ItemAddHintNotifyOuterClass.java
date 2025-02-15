@@ -92,6 +92,28 @@ public final class ItemAddHintNotifyOuterClass {
      * @return The questId.
      */
     int getQuestId();
+
+    /**
+     * <pre>
+     * guessed
+     * </pre>
+     *
+     * <code>bool is_general_reward_hidden = 1;</code>
+     * @return The isGeneralRewardHidden.
+     */
+    boolean getIsGeneralRewardHidden();
+
+    /**
+     * <code>bool is_position_valid = 3;</code>
+     * @return The isPositionValid.
+     */
+    boolean getIsPositionValid();
+
+    /**
+     * <code>bool is_transfered_from_avatar_card = 15;</code>
+     * @return The isTransferedFromAvatarCard.
+     */
+    boolean getIsTransferedFromAvatarCard();
   }
   /**
    * Protobuf type {@code ItemAddHintNotify}
@@ -141,6 +163,16 @@ public final class ItemAddHintNotifyOuterClass {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              isGeneralRewardHidden_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              isPositionValid_ = input.readBool();
+              break;
+            }
             case 32: {
 
               questId_ = input.readUInt32();
@@ -180,6 +212,11 @@ public final class ItemAddHintNotifyOuterClass {
                 position_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 120: {
+
+              isTransferedFromAvatarCard_ = input.readBool();
               break;
             }
             default: {
@@ -348,6 +385,43 @@ public final class ItemAddHintNotifyOuterClass {
       return questId_;
     }
 
+    public static final int IS_GENERAL_REWARD_HIDDEN_FIELD_NUMBER = 1;
+    private boolean isGeneralRewardHidden_;
+    /**
+     * <pre>
+     * guessed
+     * </pre>
+     *
+     * <code>bool is_general_reward_hidden = 1;</code>
+     * @return The isGeneralRewardHidden.
+     */
+    @java.lang.Override
+    public boolean getIsGeneralRewardHidden() {
+      return isGeneralRewardHidden_;
+    }
+
+    public static final int IS_POSITION_VALID_FIELD_NUMBER = 3;
+    private boolean isPositionValid_;
+    /**
+     * <code>bool is_position_valid = 3;</code>
+     * @return The isPositionValid.
+     */
+    @java.lang.Override
+    public boolean getIsPositionValid() {
+      return isPositionValid_;
+    }
+
+    public static final int IS_TRANSFERED_FROM_AVATAR_CARD_FIELD_NUMBER = 15;
+    private boolean isTransferedFromAvatarCard_;
+    /**
+     * <code>bool is_transfered_from_avatar_card = 15;</code>
+     * @return The isTransferedFromAvatarCard.
+     */
+    @java.lang.Override
+    public boolean getIsTransferedFromAvatarCard() {
+      return isTransferedFromAvatarCard_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -362,6 +436,12 @@ public final class ItemAddHintNotifyOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (isGeneralRewardHidden_ != false) {
+        output.writeBool(1, isGeneralRewardHidden_);
+      }
+      if (isPositionValid_ != false) {
+        output.writeBool(3, isPositionValid_);
+      }
       if (questId_ != 0) {
         output.writeUInt32(4, questId_);
       }
@@ -377,6 +457,9 @@ public final class ItemAddHintNotifyOuterClass {
       if (position_ != null) {
         output.writeMessage(13, getPosition());
       }
+      if (isTransferedFromAvatarCard_ != false) {
+        output.writeBool(15, isTransferedFromAvatarCard_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -386,6 +469,14 @@ public final class ItemAddHintNotifyOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (isGeneralRewardHidden_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isGeneralRewardHidden_);
+      }
+      if (isPositionValid_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, isPositionValid_);
+      }
       if (questId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, questId_);
@@ -405,6 +496,10 @@ public final class ItemAddHintNotifyOuterClass {
       if (position_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, getPosition());
+      }
+      if (isTransferedFromAvatarCard_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(15, isTransferedFromAvatarCard_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -434,6 +529,12 @@ public final class ItemAddHintNotifyOuterClass {
           != other.getReason()) return false;
       if (getQuestId()
           != other.getQuestId()) return false;
+      if (getIsGeneralRewardHidden()
+          != other.getIsGeneralRewardHidden()) return false;
+      if (getIsPositionValid()
+          != other.getIsPositionValid()) return false;
+      if (getIsTransferedFromAvatarCard()
+          != other.getIsTransferedFromAvatarCard()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -461,6 +562,15 @@ public final class ItemAddHintNotifyOuterClass {
       hash = (53 * hash) + getReason();
       hash = (37 * hash) + QUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + getQuestId();
+      hash = (37 * hash) + IS_GENERAL_REWARD_HIDDEN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsGeneralRewardHidden());
+      hash = (37 * hash) + IS_POSITION_VALID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsPositionValid());
+      hash = (37 * hash) + IS_TRANSFERED_FROM_AVATAR_CARD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsTransferedFromAvatarCard());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -618,6 +728,12 @@ public final class ItemAddHintNotifyOuterClass {
 
         questId_ = 0;
 
+        isGeneralRewardHidden_ = false;
+
+        isPositionValid_ = false;
+
+        isTransferedFromAvatarCard_ = false;
+
         return this;
       }
 
@@ -670,6 +786,9 @@ public final class ItemAddHintNotifyOuterClass {
         }
         result.reason_ = reason_;
         result.questId_ = questId_;
+        result.isGeneralRewardHidden_ = isGeneralRewardHidden_;
+        result.isPositionValid_ = isPositionValid_;
+        result.isTransferedFromAvatarCard_ = isTransferedFromAvatarCard_;
         onBuilt();
         return result;
       }
@@ -778,6 +897,15 @@ public final class ItemAddHintNotifyOuterClass {
         }
         if (other.getQuestId() != 0) {
           setQuestId(other.getQuestId());
+        }
+        if (other.getIsGeneralRewardHidden() != false) {
+          setIsGeneralRewardHidden(other.getIsGeneralRewardHidden());
+        }
+        if (other.getIsPositionValid() != false) {
+          setIsPositionValid(other.getIsPositionValid());
+        }
+        if (other.getIsTransferedFromAvatarCard() != false) {
+          setIsTransferedFromAvatarCard(other.getIsTransferedFromAvatarCard());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1469,6 +1597,111 @@ public final class ItemAddHintNotifyOuterClass {
         onChanged();
         return this;
       }
+
+      private boolean isGeneralRewardHidden_ ;
+      /**
+       * <pre>
+       * guessed
+       * </pre>
+       *
+       * <code>bool is_general_reward_hidden = 1;</code>
+       * @return The isGeneralRewardHidden.
+       */
+      @java.lang.Override
+      public boolean getIsGeneralRewardHidden() {
+        return isGeneralRewardHidden_;
+      }
+      /**
+       * <pre>
+       * guessed
+       * </pre>
+       *
+       * <code>bool is_general_reward_hidden = 1;</code>
+       * @param value The isGeneralRewardHidden to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsGeneralRewardHidden(boolean value) {
+        
+        isGeneralRewardHidden_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * guessed
+       * </pre>
+       *
+       * <code>bool is_general_reward_hidden = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsGeneralRewardHidden() {
+        
+        isGeneralRewardHidden_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean isPositionValid_ ;
+      /**
+       * <code>bool is_position_valid = 3;</code>
+       * @return The isPositionValid.
+       */
+      @java.lang.Override
+      public boolean getIsPositionValid() {
+        return isPositionValid_;
+      }
+      /**
+       * <code>bool is_position_valid = 3;</code>
+       * @param value The isPositionValid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsPositionValid(boolean value) {
+        
+        isPositionValid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_position_valid = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsPositionValid() {
+        
+        isPositionValid_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean isTransferedFromAvatarCard_ ;
+      /**
+       * <code>bool is_transfered_from_avatar_card = 15;</code>
+       * @return The isTransferedFromAvatarCard.
+       */
+      @java.lang.Override
+      public boolean getIsTransferedFromAvatarCard() {
+        return isTransferedFromAvatarCard_;
+      }
+      /**
+       * <code>bool is_transfered_from_avatar_card = 15;</code>
+       * @param value The isTransferedFromAvatarCard to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsTransferedFromAvatarCard(boolean value) {
+        
+        isTransferedFromAvatarCard_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_transfered_from_avatar_card = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsTransferedFromAvatarCard() {
+        
+        isTransferedFromAvatarCard_ = false;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1537,12 +1770,14 @@ public final class ItemAddHintNotifyOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\027ItemAddHintNotify.proto\032\016ItemHint.prot" +
-      "o\032\014Vector.proto\"\241\001\n\021ItemAddHintNotify\022\034\n" +
+      "o\032\014Vector.proto\"\206\002\n\021ItemAddHintNotify\022\034\n" +
       "\titem_list\030\006 \003(\0132\t.ItemHint\022\031\n\010position\030" +
       "\r \001(\0132\007.Vector\0221\n\036overflow_transformed_i" +
       "tem_list\030\010 \003(\0132\t.ItemHint\022\016\n\006reason\030\007 \001(" +
-      "\r\022\020\n\010quest_id\030\004 \001(\rB\033\n\031emu.grasscutter.n" +
-      "et.protob\006proto3"
+      "\r\022\020\n\010quest_id\030\004 \001(\r\022 \n\030is_general_reward" +
+      "_hidden\030\001 \001(\010\022\031\n\021is_position_valid\030\003 \001(\010" +
+      "\022&\n\036is_transfered_from_avatar_card\030\017 \001(\010" +
+      "B\033\n\031emu.grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1555,7 +1790,7 @@ public final class ItemAddHintNotifyOuterClass {
     internal_static_ItemAddHintNotify_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ItemAddHintNotify_descriptor,
-        new java.lang.String[] { "ItemList", "Position", "OverflowTransformedItemList", "Reason", "QuestId", });
+        new java.lang.String[] { "ItemList", "Position", "OverflowTransformedItemList", "Reason", "QuestId", "IsGeneralRewardHidden", "IsPositionValid", "IsTransferedFromAvatarCard", });
     emu.grasscutter.net.proto.ItemHintOuterClass.getDescriptor();
     emu.grasscutter.net.proto.VectorOuterClass.getDescriptor();
   }
