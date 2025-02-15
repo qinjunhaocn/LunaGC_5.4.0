@@ -115,7 +115,7 @@ public final class AttackResultOuterClass {
     int getDefenseId();
 
     /**
-     * <code>uint32 element_type = 101;</code>
+     * <code>uint32 element_type = 2;</code>
      * @return The elementType.
      */
     int getElementType();
@@ -177,6 +177,11 @@ public final class AttackResultOuterClass {
                 hitCollision_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 16: {
+
+              elementType_ = input.readUInt32();
               break;
             }
             case 26: {
@@ -242,11 +247,6 @@ public final class AttackResultOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               animEventId_ = s;
-              break;
-            }
-            case 808: {
-
-              elementType_ = input.readUInt32();
               break;
             }
             default: {
@@ -467,10 +467,10 @@ public final class AttackResultOuterClass {
       return defenseId_;
     }
 
-    public static final int ELEMENT_TYPE_FIELD_NUMBER = 101;
+    public static final int ELEMENT_TYPE_FIELD_NUMBER = 2;
     private int elementType_;
     /**
-     * <code>uint32 element_type = 101;</code>
+     * <code>uint32 element_type = 2;</code>
      * @return The elementType.
      */
     @java.lang.Override
@@ -494,6 +494,9 @@ public final class AttackResultOuterClass {
                         throws java.io.IOException {
       if (hitCollision_ != null) {
         output.writeMessage(1, getHitCollision());
+      }
+      if (elementType_ != 0) {
+        output.writeUInt32(2, elementType_);
       }
       if (abilityIdentifier_ != null) {
         output.writeMessage(3, getAbilityIdentifier());
@@ -519,9 +522,6 @@ public final class AttackResultOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(animEventId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 15, animEventId_);
       }
-      if (elementType_ != 0) {
-        output.writeUInt32(101, elementType_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -534,6 +534,10 @@ public final class AttackResultOuterClass {
       if (hitCollision_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHitCollision());
+      }
+      if (elementType_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, elementType_);
       }
       if (abilityIdentifier_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -565,10 +569,6 @@ public final class AttackResultOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(animEventId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, animEventId_);
-      }
-      if (elementType_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(101, elementType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1665,7 +1665,7 @@ public final class AttackResultOuterClass {
 
       private int elementType_ ;
       /**
-       * <code>uint32 element_type = 101;</code>
+       * <code>uint32 element_type = 2;</code>
        * @return The elementType.
        */
       @java.lang.Override
@@ -1673,7 +1673,7 @@ public final class AttackResultOuterClass {
         return elementType_;
       }
       /**
-       * <code>uint32 element_type = 101;</code>
+       * <code>uint32 element_type = 2;</code>
        * @param value The elementType to set.
        * @return This builder for chaining.
        */
@@ -1684,7 +1684,7 @@ public final class AttackResultOuterClass {
         return this;
       }
       /**
-       * <code>uint32 element_type = 101;</code>
+       * <code>uint32 element_type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearElementType() {
@@ -1770,7 +1770,7 @@ public final class AttackResultOuterClass {
       "ntifier\030\003 \001(\0132\022.AbilityIdentifier\022\016\n\006dam" +
       "age\030\004 \001(\002\022\023\n\013attacker_id\030\r \001(\r\022 \n\030hit_re" +
       "treat_angle_compat\030\t \001(\005\022\022\n\ndefense_id\030\010" +
-      " \001(\r\022\024\n\014element_type\030e \001(\rB\033\n\031emu.grassc" +
+      " \001(\r\022\024\n\014element_type\030\002 \001(\rB\033\n\031emu.grassc" +
       "utter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

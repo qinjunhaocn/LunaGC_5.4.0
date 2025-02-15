@@ -133,6 +133,10 @@ public final class PacketOpcodes {
     public static final int EntityPropNotify = 9048;
     public static final int AvatarFightPropNotify = 23813;
     public static final int AvatarFightPropUpdateNotify = 2832;
+    public static final int DoGachaReq = 8001;
+    public static final int AbilityChangeNotify = 21065;
+    public static final int AbilityInvocationsNotify = 2728;
+    public static final int AbilityInvocationFailNotify = 21933;
 
     // leaving outdated for no reason
     public static final int PlayerSetPauseReq = 26188;
@@ -342,7 +346,6 @@ public final class PacketOpcodes {
     public static final int HomeAvatarRewardEventGetReq = 1111111111;
     public static final int HomeAvatarRewardEventGetRsp = 1111111111;
     public static final int GetAllMailNotify = 1111111111;
-    public static final int DoGachaReq = 1111111111;
     public static final int HomeAvatarCostumeChangeNotify = 1111111111;
     public static final int AvatarWearFlycloakReq = 1111111111;
     public static final int AvatarWearFlycloakRsp = 1111111111;
@@ -410,7 +413,6 @@ public final class PacketOpcodes {
     public static final int OfferingInteractRsp = 1111111111;
     public static final int EnterWorldAreaReq = 1111111111;
     public static final int EnterWorldAreaRsp = 1111111111;
-    public static final int AbilityChangeNotify = 1111111111;
     public static final int SceneAreaUnlockNotify = 1111111111;
     public static final int UnfreezeGroupLimitNotify = 1111111111;
     public static final int MapAreaChangeNotify = 1111111111;
@@ -438,7 +440,6 @@ public final class PacketOpcodes {
     public static final int DungeonPlayerDieNotify = 1111111111;
     public static final int DungeonDieOptionReq = 1111111111;
     public static final int DungeonDieOptionRsp = 1111111111;
-    public static final int AbilityInvocationsNotify = 1111111111;
     public static final int WorldPlayerRTTNotify = 1111111111;
     public static final int PlayerApplyEnterMpResultRsp = 1111111111;
     public static final int PlayerGetForceQuitBanInfoRsp = 1111111111;
@@ -484,7 +485,6 @@ public final class PacketOpcodes {
     public static final int ProudSkillExtraLevelNotify = 1111111111;
     public static final int AvatarSatiationDataNotify = 7770;
     public static final int AvatarEnterElementViewNotify = 1111111111;
-    public static final int AbilityInvocationFailNotify = 1111111111;
     public static final int AvatarEquipAffixStartNotify = 1111111111;
     public static final int GachaWishReq = 6426;
     public static final int AdjustWorldLevelRsp = 1111111111;
