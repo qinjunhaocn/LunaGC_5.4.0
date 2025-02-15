@@ -73,6 +73,7 @@ This guide is very minimal and contains steps to just get your server and client
   
   ```bash
   chmod +x gradlew
+  ./gradlew
   ./gradlew jar
   ```
 
