@@ -202,6 +202,8 @@ public final class PacketOpcodes {
     public static final int AvatarPropChangeReasonNotify = 24444;
     public static final int PlayerPropNotify = 5688;
     public static final int EvtBulletHitNotify = 134;
+    public static final int MassiveEntityElementOpBatchNotify = 2824;
+    public static final int AvatarLifeStateChangeNotify = 2117;
 
     // probably right
     
@@ -243,7 +245,6 @@ public final class PacketOpcodes {
     public static final int PlayerGameTimeByLuaNotify = 1111111111;
     public static final int PlayerInvestigationAllInfoNotify = 1111111111;
     public static final int TakeBattlePassMissionPointRsp = 1111111111;
-    public static final int AvatarLifeStateChangeNotify = 1111111111;
     public static final int PlayerInvestigationTargetNotify = 1111111111;
     public static final int AvatarPromoteGetRewardRsp = 1111111111;
     public static final int RedeemLegendaryKeyRsp = 1111111111;
@@ -1659,7 +1660,6 @@ public final class PacketOpcodes {
     public static final int MainCoopUpdateNotify = 1111111111;
     public static final int MarkNewNotify = 1111111111;
     public static final int MarkTargetInvestigationMonsterNotify = 1111111111;
-    public static final int MassiveEntityElementOpBatchNotify = 1111111111;
     public static final int MassiveEntityStateChangedNotify = 1111111111;
     public static final int MaterialDeleteReturnNotify = 1111111111;
     public static final int MaterialDeleteUpdateNotify = 1111111111;
