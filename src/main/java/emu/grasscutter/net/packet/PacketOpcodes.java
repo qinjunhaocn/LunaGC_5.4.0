@@ -94,8 +94,6 @@ public final class PacketOpcodes {
     public static final int SetPlayerNameRsp = 24602;
     public static final int SetPlayerSignatureReq = 26003;
     public static final int SetPlayerSignatureRsp = 8848;
-    public static final int GetAllUnlockNameCardReq = 23362; // ?
-    public static final int GetAllUnlockNameCardRsp = 21801; // ?
     public static final int SetPlayerBirthdayReq = 25797;
     public static final int SetPlayerBirthdayRsp = 7268;
     public static final int ServerBuffChangeNotify = 5851;
@@ -204,6 +202,8 @@ public final class PacketOpcodes {
     public static final int EvtBulletHitNotify = 134;
     public static final int MassiveEntityElementOpBatchNotify = 2824;
     public static final int AvatarLifeStateChangeNotify = 2117;
+    public static final int EntityAuthorityChangeNotify = 23692;
+    public static final int EvtEntityRenderersChangedNotify = 22931;
 
     // probably right
     
@@ -212,6 +212,8 @@ public final class PacketOpcodes {
 
     // unk 
     public static final int PrivateChatRsp = 1111111111;
+    public static final int GetAllUnlockNameCardReq = 1111111111; // ?
+    public static final int GetAllUnlockNameCardRsp = 1111111111; // ?
     public static final int ChangeAvatarRsp = 1111111111; // huh
     public static final int ActivityInfoNotify = 1111111111;
     public static final int AddQuestContentProgressReq = 1111111111; //unk
@@ -253,7 +255,6 @@ public final class PacketOpcodes {
     public static final int NormalUidOpNotify = 1111111111; //unk, what
     public static final int ShowTemplateReminderNotify = 1111111111;
     public static final int SceneEntityDrownRsp = 1111111111;
-    public static final int EntityAuthorityChangeNotify = 1111111111;
     public static final int QuestUpdateQuestVarNotify = 1111111111;
     public static final int AvatarDieAnimationEndReq = 1111111111;
     public static final int AvatarDieAnimationEndRsp = 1111111111;
@@ -515,7 +516,6 @@ public final class PacketOpcodes {
     public static final int AvatarEnterElementViewNotify = 1111111111;
     public static final int AvatarEquipAffixStartNotify = 1111111111;
     public static final int AdjustWorldLevelRsp = 1111111111;
-    public static final int EvtEntityRenderersChangedNotify = 1111111111;
     public static final int EvtEntityStartDieEndNotify = 1111111111;
     public static final int AvatarRenameInfoNotify = 1111111111;
     public static final int EvtCostStaminaNotify = 1111111111;
