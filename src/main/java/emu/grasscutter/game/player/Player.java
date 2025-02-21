@@ -101,6 +101,7 @@ public class Player implements PlayerHook, FieldFetch {
     @Getter private Set<Integer> nameCardList;
     @Getter private Set<Integer> flyCloakList;
     @Getter private Set<Integer> costumeList;
+    @Getter private Set<Integer> traceEffectList;
     @Getter private Set<Integer> personalLineList;
     @Getter @Setter private Set<Integer> rewardedLevels;
     @Getter @Setter private Set<Integer> homeRewardedLevels;
@@ -234,6 +235,7 @@ public class Player implements PlayerHook, FieldFetch {
         this.nameCardList = new HashSet<>();
         this.flyCloakList = new HashSet<>();
         this.costumeList = new HashSet<>();
+        this.traceEffectList = new HashSet<>();
         this.personalLineList = new HashSet<>();
         this.towerData = new TowerData();
         this.collectionRecordStore = new PlayerCollectionRecords();
@@ -968,6 +970,10 @@ public class Player implements PlayerHook, FieldFetch {
     public void addCostume(int costumeId) {
         this.getCostumeList().add(costumeId);
         this.sendPacket(new PacketAvatarGainCostumeNotify(costumeId));
+    }
+    public void addTraceEffect(int traceEffectId) {
+        this.getTraceEffectList().add(traceEffectId);
+        this.sendPacket(new PacketAvatarGainTraceEffectNotify(traceEffectId));
     }
 
     public int getCostumeFrom(int avatarId) {

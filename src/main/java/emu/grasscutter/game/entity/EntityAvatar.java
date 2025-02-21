@@ -256,6 +256,7 @@ public class EntityAvatar extends GameEntity {
                         .addAllTeamResonanceList(player.getTeamManager().getTeamResonances())
                         .setWearingFlycloakId(avatar.getFlyCloak())
                         .setCostumeId(avatar.getCostume())
+                        .setTraceEffectId(avatar.getTraceEffect())
                         .setBornTime(avatar.getBornTime());
 
         for (GameItem item : avatar.getEquips().values()) {

@@ -83,6 +83,7 @@ public class Avatar {
 
     @Getter @Setter private int nameCardRewardId;
     @Getter @Setter private int nameCardId;
+    @Getter @Setter private int traceEffect;
 
     // trial avatar property
     @Getter @Setter private int trialAvatarId = 0;
@@ -544,6 +545,9 @@ public class Avatar {
         this.setFightProperty(FightProperty.FIGHT_PROP_CRITICAL, data.getBaseCritical());
         this.setFightProperty(FightProperty.FIGHT_PROP_CRITICAL_HURT, data.getBaseCriticalHurt());
         this.setFightProperty(FightProperty.FIGHT_PROP_CHARGE_EFFICIENCY, 1f);
+        this.setFightProperty(FightProperty.FIGHT_PROP_MAX_SPECIAL_ENERGY, 100);
+        this.setFightProperty(FightProperty.FIGHT_PROP_START_SPECIAL_ENERGY, 50);
+        this.setFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY, 65);
 
         if (promoteData != null) {
             for (FightPropData fightPropData : promoteData.getAddProps()) {
@@ -1039,7 +1043,8 @@ public class Avatar {
                         .setBornTime(this.getBornTime())
                         .setFetterInfo(avatarFetter)
                         .setWearingFlycloakId(this.getFlyCloak())
-                        .setCostumeId(this.getCostume());
+                        .setCostumeId(this.getCostume())
+                        .setTraceEffectId(this.getTraceEffect());
 
         this.getSkillExtraChargeMap()
                 .forEach(

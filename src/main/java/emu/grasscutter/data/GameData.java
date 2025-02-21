@@ -108,6 +108,9 @@ public final class GameData {
             new Int2ObjectOpenHashMap<>();
 
     @Getter
+    private static final Int2ObjectMap<AvatarTraceEffectData> avatarTraceEffectDataMap = new Int2ObjectLinkedOpenHashMap<AvatarTraceEffectData>();
+
+    @Getter
     private static final Int2ObjectMap<ActivityData> activityDataMap = new Int2ObjectOpenHashMap<>();
 
     @Getter
