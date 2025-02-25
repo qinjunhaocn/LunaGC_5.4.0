@@ -34,10 +34,10 @@ public class ActionAvatarSkillStart extends AbilityActionHandler {
                 StaminaManager staminaManager = player.getStaminaManager();
                 GameSession session = player.getSession();
 
-                // SEGS NO WAY
+                // Convert the RATIO to INTERNAL stamina value (displayed value × 100)
                 int staminaCost = (int) (costStaminaRatio * 100); // e.g., 20.0 → 2000 internal stamina
 
-             
+                // Subtract stamina directly (negative value for cost)
                 Consumption consumption = new Consumption(
                     ConsumptionType.FIGHT, 
                     -Math.abs(staminaCost) // Ensure negative value

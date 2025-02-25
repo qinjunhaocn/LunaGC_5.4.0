@@ -337,6 +337,7 @@ public class AbilityModifier implements Serializable {
         public boolean isFromOwner;
         public String healTag;
         public String key;
+        public String abilityName;
         public String globalValueKey;
         public String abilityFormula;
         public String srcTarget, dstTarget;

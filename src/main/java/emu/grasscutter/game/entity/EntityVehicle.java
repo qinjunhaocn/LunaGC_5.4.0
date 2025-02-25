@@ -36,9 +36,10 @@ public class EntityVehicle extends EntityBaseGadget {
     @Getter private final int gadgetId;
 
     @Getter @Setter private float curStamina;
+    @Getter @Setter private float curPhlogiston;
     @Getter private List<VehicleMember> vehicleMembers;
     @Nullable @Getter private ConfigEntityGadget configGadget;
-
+    public int transformEntityId;
     public EntityVehicle(
             Scene scene, Player player, int gadgetId, int pointId, Position pos, Position rot) {
         super(scene, pos, rot);
@@ -48,6 +49,7 @@ public class EntityVehicle extends EntityBaseGadget {
         this.gadgetId = gadgetId;
         this.pointId = pointId;
         this.curStamina = 240; // might be in configGadget.GCALKECLLLP.JBAKBEFIMBN.ANBMPHPOALP
+        this.curPhlogiston = 100;
         this.vehicleMembers = new ArrayList<>();
         GadgetData data = GameData.getGadgetDataMap().get(gadgetId);
         if (data != null && data.getJsonName() != null) {
@@ -71,6 +73,9 @@ public class EntityVehicle extends EntityBaseGadget {
                 VehicleInfo.newBuilder()
                         .setOwnerUid(this.owner.getUid())
                         .setCurStamina(getCurStamina())
+                        .setCurPhlogiston(getCurPhlogiston())
+                        .setTransformEntityId(transformEntityId)
+
                         .build();
 
         EntityAuthorityInfo authority =

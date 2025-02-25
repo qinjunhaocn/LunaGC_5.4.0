@@ -143,7 +143,7 @@ public class StaminaManager extends BasePlayerManager {
     private Timer sustainedStaminaHandlerTimer;
     private GameSession cachedSession = null;
     private GameEntity cachedEntity = null;
-    private int staminaRecoverDelay = 0;
+    public int staminaRecoverDelay = 0;
     private int lastSkillId = 0;
     private int lastSkillCasterId = 0;
     private boolean lastSkillFirstTick = true;
@@ -526,7 +526,7 @@ public class StaminaManager extends BasePlayerManager {
 
     // Stamina Consumption Reduction: https://genshin-impact.fandom.com/wiki/Stamina
 
-    private Consumption getFightConsumption(int skillCasting) {
+    public Consumption getFightConsumption(int skillCasting) {
         // Talent moving
         if (TalentMovements.contains(skillCasting)) {
             // TODO: recover 1000 if kamisato hits an enemy at the end of dashing

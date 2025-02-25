@@ -8,6 +8,7 @@ import emu.grasscutter.game.entity.EntityAvatar;
 import emu.grasscutter.game.inventory.GameItem;
 import emu.grasscutter.game.player.BasePlayerManager;
 import emu.grasscutter.game.player.Player;
+import emu.grasscutter.net.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.grasscutter.server.event.entity.EntityCreationEvent;
 import emu.grasscutter.server.packet.send.PacketAvatarChangeCostumeNotify;
 import emu.grasscutter.server.packet.send.PacketAvatarFlycloakChangeNotify;
@@ -131,7 +132,6 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<Avatar>
         // Done
         return true;
     }
-
     public boolean changeTraceEffect(long avatarGuid, int traceEffectId) {
         Avatar avatar = this.getAvatarByGuid(avatarGuid);
         if (avatar == null || !this.getPlayer().getTraceEffectList().contains(traceEffectId) && traceEffectId != 0) {
@@ -150,6 +150,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<Avatar>
         } 
         return true;
     }
+
 
     public void loadFromDatabase() {
         if (this.isLoaded()) return;

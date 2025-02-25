@@ -70,6 +70,8 @@ public final class GameData {
 
     @Getter private static final Map<String, List<TalentData>> talents = new HashMap<>();
     @Getter private static final Map<String, ConfigEntityAvatar> avatarConfigData = new HashMap<>();
+    @Getter
+    private static final Int2ObjectMap<AvatarTraceEffectData> avatarTraceEffectDataMap = new Int2ObjectLinkedOpenHashMap<AvatarTraceEffectData>();
     @Getter private static final Map<String, ConfigEntityGadget> gadgetConfigData = new HashMap<>();
     @Getter private static final Map<String, ConfigEntityMonster> monsterConfigData = new HashMap<>();
 
@@ -106,9 +108,6 @@ public final class GameData {
     @Getter
     private static final Int2ObjectMap<AchievementGoalData> achievementGoalDataMap =
             new Int2ObjectOpenHashMap<>();
-
-    @Getter
-    private static final Int2ObjectMap<AvatarTraceEffectData> avatarTraceEffectDataMap = new Int2ObjectLinkedOpenHashMap<AvatarTraceEffectData>();
 
     @Getter
     private static final Int2ObjectMap<ActivityData> activityDataMap = new Int2ObjectOpenHashMap<>();
