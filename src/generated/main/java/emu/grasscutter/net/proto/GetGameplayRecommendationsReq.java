@@ -62,7 +62,7 @@ public final class GetGameplayRecommendationsReq {
 
     /**
      * <pre>
-     *MJEACKGHLKI reliquary_set_request = 1454;
+     *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
      *IBOGDICEEBM element_reliquary_set_request = 384;
      *JGIEOHIDMII weapon_request = 891;
      *JIMLEEBGMCI element_weapon_request = 225;
@@ -74,7 +74,7 @@ public final class GetGameplayRecommendationsReq {
     boolean hasElementReliquaryRequest();
     /**
      * <pre>
-     *MJEACKGHLKI reliquary_set_request = 1454;
+     *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
      *IBOGDICEEBM element_reliquary_set_request = 384;
      *JGIEOHIDMII weapon_request = 891;
      *JIMLEEBGMCI element_weapon_request = 225;
@@ -86,7 +86,7 @@ public final class GetGameplayRecommendationsReq {
     emu.grasscutter.net.proto.GameplayRecommendationElementReliquaryRequestOuterClass.GameplayRecommendationElementReliquaryRequest getElementReliquaryRequest();
     /**
      * <pre>
-     *MJEACKGHLKI reliquary_set_request = 1454;
+     *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
      *IBOGDICEEBM element_reliquary_set_request = 384;
      *JGIEOHIDMII weapon_request = 891;
      *JIMLEEBGMCI element_weapon_request = 225;
@@ -357,7 +357,7 @@ public final class GetGameplayRecommendationsReq {
     public static final int ELEMENT_RELIQUARY_REQUEST_FIELD_NUMBER = 1443;
     /**
      * <pre>
-     *MJEACKGHLKI reliquary_set_request = 1454;
+     *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
      *IBOGDICEEBM element_reliquary_set_request = 384;
      *JGIEOHIDMII weapon_request = 891;
      *JIMLEEBGMCI element_weapon_request = 225;
@@ -372,7 +372,7 @@ public final class GetGameplayRecommendationsReq {
     }
     /**
      * <pre>
-     *MJEACKGHLKI reliquary_set_request = 1454;
+     *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
      *IBOGDICEEBM element_reliquary_set_request = 384;
      *JGIEOHIDMII weapon_request = 891;
      *JIMLEEBGMCI element_weapon_request = 225;
@@ -390,7 +390,7 @@ public final class GetGameplayRecommendationsReq {
     }
     /**
      * <pre>
-     *MJEACKGHLKI reliquary_set_request = 1454;
+     *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
      *IBOGDICEEBM element_reliquary_set_request = 384;
      *JGIEOHIDMII weapon_request = 891;
      *JIMLEEBGMCI element_weapon_request = 225;
@@ -1183,7 +1183,7 @@ public final class GetGameplayRecommendationsReq {
           emu.grasscutter.net.proto.GameplayRecommendationElementReliquaryRequestOuterClass.GameplayRecommendationElementReliquaryRequest, emu.grasscutter.net.proto.GameplayRecommendationElementReliquaryRequestOuterClass.GameplayRecommendationElementReliquaryRequest.Builder, emu.grasscutter.net.proto.GameplayRecommendationElementReliquaryRequestOuterClass.GameplayRecommendationElementReliquaryRequestOrBuilder> elementReliquaryRequestBuilder_;
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1198,7 +1198,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1223,7 +1223,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1246,7 +1246,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1267,7 +1267,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1296,7 +1296,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1322,7 +1322,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1335,7 +1335,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
@@ -1356,7 +1356,7 @@ public final class GetGameplayRecommendationsReq {
       }
       /**
        * <pre>
-       *MJEACKGHLKI reliquary_set_request = 1454;
+       *	GameplayRecommendationReliquarySetRequest reliquary_set_request = 1454;
        *IBOGDICEEBM element_reliquary_set_request = 384;
        *JGIEOHIDMII weapon_request = 891;
        *JIMLEEBGMCI element_weapon_request = 225;
