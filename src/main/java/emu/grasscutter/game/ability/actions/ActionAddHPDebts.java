@@ -25,17 +25,13 @@ public final class ActionAddHPDebts extends AbilityActionHandler {
         Grasscutter.getLogger().warn("[ActionAddHPDebts] Called with debt {}", debt);
         Grasscutter.getLogger().warn("[ActionAddHPDebts] Called with avatar {}", avatar.getAvatarId());
 
-                if (!(target instanceof EntityAvatar)) {
-
+        if (!(target instanceof EntityAvatar)) {
             target = ability.getOwner();
-            
         }
         if (target instanceof EntityWeapon) {
             target = ability.getOwner();
         }
         
-        
-
             float curDebt = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS);
             float newDebt = curDebt + debt;
             if (newDebt < 0) {

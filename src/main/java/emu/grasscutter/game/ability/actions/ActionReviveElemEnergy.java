@@ -18,8 +18,8 @@ public final class ActionReviveElemEnergy extends AbilityActionHandler {
     public boolean execute(
             Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
                 Grasscutter.getLogger().info("ReviveElemEnergy");
-       float ratio = action.ratio.get(ability);
-    if (target instanceof EntityAvatar avatar) {
+        float ratio = action.ratio.get(ability);
+        if (target instanceof EntityAvatar avatar) {
         float curEnergy = avatar.getFightProperty(avatar.getAvatar().getSkillDepot().getElementType().getCurEnergyProp());
         float newEnergy;
         if (ratio < 0) {
@@ -33,11 +33,12 @@ public final class ActionReviveElemEnergy extends AbilityActionHandler {
         avatar.getScene().broadcastPacket(new PacketEntityFightPropUpdateNotify(avatar, avatar.getAvatar().getSkillDepot().getElementType().getCurEnergyProp()));
         avatar.getScene().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(avatar, avatar.getAvatar().getSkillDepot().getElementType().getCurEnergyProp(), newEnergy, PropChangeReason.PROP_CHANGE_REASON_ABILITY, ChangeEnergyReason.CHANGE_ENERGY_REASON_ABILITY));
         Grasscutter.getLogger().info("Revived avatar energy by " + ratio);
-    if (action == null) {
-        return false;
-    }
+
+        if (action == null) {
+            return false;
+        }
     
-}
+    }
         return true;
     }
 }

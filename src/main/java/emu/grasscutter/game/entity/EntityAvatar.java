@@ -38,8 +38,8 @@ import lombok.*;
 
 public class EntityAvatar extends GameEntity {
     @Getter private final Avatar avatar;
-     private static long lastExecutionTime = 0;
-     public static final long COOLDOWN = 14000;
+    private static long lastExecutionTime = 0;
+    public static final long COOLDOWN = 14000;
 
     @Getter private PlayerDieType killedType;
     @Getter private int killedBy;
@@ -82,15 +82,14 @@ public class EntityAvatar extends GameEntity {
         return this.lastExecutionTime;
     }
     @Override
- public float getNyxValue() {
-    if (this.getGlobalAbilityValues().containsKey("NyxValue")) {
-        return this.getGlobalAbilityValues().get("NyxValue");
-    } else {
-        Grasscutter.getLogger().info("NyxValue from entityavatar not found");
-        return 0f;
-       
-    }
- }
+        public float getNyxValue() {
+            if (this.getGlobalAbilityValues().containsKey("NyxValue")) {
+                return this.getGlobalAbilityValues().get("NyxValue");
+            } else {
+                Grasscutter.getLogger().info("NyxValue from entityavatar not found");
+                return 0f;
+            }
+        }
     
 
     public void setLastExecutionTime(long time) {

@@ -51,7 +51,7 @@ public class Avatar {
     @Nullable @Transient @Getter private AvatarSkillDepotData skillDepot;
     @Transient @Getter private long guid; // Player unique id
     @Getter private int avatarId; // Id of avatar
-     @Getter @Setter public float nyxValue;
+    @Getter @Setter public float nyxValue;
     @Getter @Setter private int level = 1;
     @Getter @Setter private int exp;
     @Getter @Setter private int promoteLevel;
@@ -377,23 +377,24 @@ public class Avatar {
     public void addFightProperty(FightProperty prop, float value) {
         this.getFightProperties().put(prop.getId(), getFightProperty(prop) + value);
     }
-  public void addSpecialEnergy(float energy){
+    public void addSpecialEnergy(float energy){
        float curSpecialEnergy = getFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY);
        float maxSpecialEnergy = getFightProperty(FightProperty.FIGHT_PROP_MAX_SPECIAL_ENERGY);
        curSpecialEnergy+=energy;
-       if(curSpecialEnergy >= maxSpecialEnergy){
-        curSpecialEnergy = maxSpecialEnergy;
-}
+        if (curSpecialEnergy >= maxSpecialEnergy){
+            curSpecialEnergy = maxSpecialEnergy;
+        }
        setFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY, curSpecialEnergy);
        getPlayer().sendPacket(new PacketAvatarFightPropNotify(this));
-}
-public void clearSpecialEnergy(){
+    }
+
+    public void clearSpecialEnergy(){
        float curSpecialEnergy = getFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY);
        float maxSpecialEnergy = getFightProperty(FightProperty.FIGHT_PROP_MAX_SPECIAL_ENERGY);
        curSpecialEnergy = 0;
        setFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY, curSpecialEnergy);
        getPlayer().sendPacket(new PacketAvatarFightPropNotify(this));
-}
+    }
 
     public float getFightProperty(FightProperty prop) {
         return getFightProperties().getOrDefault(prop.getId(), 0f);

@@ -25,9 +25,6 @@ public final class ActionHealHP extends AbilityActionHandler {
     public boolean execute(
             Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
         var owner = ability.getOwner();
-
-
-
     
         if (owner != null) {
                 Grasscutter.getLogger().debug("Owner: {}", owner);
@@ -81,13 +78,13 @@ public final class ActionHealHP extends AbilityActionHandler {
         var amountToRegenerate = action.amount.get(properties, 0);
 
         if (action.amount.get(ability) != 0 && 
-    (amountByCasterMaxHPRatio != 0 || 
-     amountByCasterAttackRatio != 0 ||
-     amountByCasterCurrentHPRatio != 0 ||
-     amountByTargetCurrentHPRatio != 0 ||
-     amountByTargetMaxHPRatio != 0)) {
-    amountToRegenerate += action.amount.get(ability);  // Add the amount to the regeneration if both are present
-}
+            (amountByCasterMaxHPRatio != 0 || 
+            amountByCasterAttackRatio != 0 ||
+            amountByCasterCurrentHPRatio != 0 ||
+            amountByTargetCurrentHPRatio != 0 ||
+            amountByTargetMaxHPRatio != 0)) {
+            amountToRegenerate += action.amount.get(ability);  // Add the amount to the regeneration if both are present
+        }
 
         amountToRegenerate +=
                 amountByCasterMaxHPRatio * owner.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
@@ -120,55 +117,54 @@ public final class ActionHealHP extends AbilityActionHandler {
         target.getWorld().broadcastPacket(new PacketServerGlobalValueChangeNotify(target, "_ABILITY_Clorinde_Dodge_HealFlag", 0f));
 
 
-
-
-if (target.isConvertToHpDebt() && ability.getOwner() != target) {
-    if (target instanceof EntityAvatar avatar) {
+    if (target.isConvertToHpDebt() && ability.getOwner() != target) {
+        if (target instanceof EntityAvatar avatar) {
     
-    float healAmount = amountToRegenerate * abilityRatio * action.healRatio.get(ability, 1f);
-    Grasscutter.getLogger().debug("Initial heal amount before applying debt ratio: {}", healAmount);
+        float healAmount = amountToRegenerate * abilityRatio * action.healRatio.get(ability, 1f);
+            Grasscutter.getLogger().debug("Initial heal amount before applying debt ratio: {}", healAmount);
 
-if (avatar.getAvatar().getAvatarId() == 10000098) {
-    healToHpDebtsRatio = 1.0f;
-}
-if (avatar.getAvatar().getAvatarId() == 10000096) {
-    healToHpDebtsRatio = 0.0f;
-    
-}
-    healAmount *= healToHpDebtsRatio;
+        if (avatar.getAvatar().getAvatarId() == 10000098) {
+            healToHpDebtsRatio = 1.0f;
+        }
+        if (avatar.getAvatar().getAvatarId() == 10000096) {
+            healToHpDebtsRatio = 0.0f;
+        }
 
-    float curDebt = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS);
-    float newDebt = curDebt + healAmount;
-    newDebt = Math.max(0, Math.min(2 * target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP), newDebt));
+        healAmount *= healToHpDebtsRatio;
 
-    target.setFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS, newDebt);
-    target.getWorld().broadcastPacket(new PacketEntityFightPropUpdateNotify(target, FightProperty.FIGHT_PROP_CUR_HP_DEBTS));
+        float curDebt = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS);
+        float newDebt = curDebt + healAmount;
+        newDebt = Math.max(0, Math.min(2 * target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP), newDebt));
 
-    float changeDebt = newDebt - curDebt;
-    if (changeDebt > 0) {
-        target.getWorld().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(
+        target.setFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS, newDebt);
+        target.getWorld().broadcastPacket(new PacketEntityFightPropUpdateNotify(target, FightProperty.FIGHT_PROP_CUR_HP_DEBTS));
+
+        float changeDebt = newDebt - curDebt;
+        if (changeDebt > 0) {
+            target.getWorld().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(
                 target,
                 FightProperty.FIGHT_PROP_CUR_HP_DEBTS,
                 changeDebt,
                 PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY,
                 ChangeHpDebtsReasonOuterClass.ChangeHpDebtsReason.CHANGE_HP_DEBTS_ADD_ABILITY
-        ));
+            ));
+        }
+
+        Grasscutter.getLogger().warn("[HealHP] Converted {}% of healing ({}) to HP debt for target {}", healToHpDebtsRatio * 100, healAmount, target);
+
+        return true;
     }
-
-    Grasscutter.getLogger().warn("[HealHP] Converted {}% of healing ({}) to HP debt for target {}", 
-                                 healToHpDebtsRatio * 100, healAmount, target);
-    return true;
-}
-}
-if ("MizukiBurstSelf".equals(healTag)) {
-    amountToRegenerate *= 2.0f;  // Double the healing amount
-    Grasscutter.getLogger().debug("Healing increased by 100% for target {}", target);
 }
 
+        if ("MizukiBurstSelf".equals(healTag)) {
+            amountToRegenerate *= 2.0f;  // Double the healing amount
+            Grasscutter.getLogger().debug("Healing increased by 100% for target {}", target);
+        }
 
-           // --- New Functionality: Capture pre-heal HP before applying heal ---
-           float preHealHp = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
-           float preMaxHp = target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
+
+        // --- New Functionality: Capture pre-heal HP before applying heal ---
+        float preHealHp = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
+        float preMaxHp = target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
 
         // Apply the healing if the mixin isnt active
         target.heal(
@@ -186,18 +182,17 @@ if ("MizukiBurstSelf".equals(healTag)) {
                     break;
                 }
             }
-            float curHp = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
-float maxHp = target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
-if (curHp < maxHp && furina != null) {
-                float energyToAdd = 4.0f; 
-                furina.addEnergy(energyToAdd, PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY);
 
-                
+        float curHp = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
+        float maxHp = target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
+        if (curHp < maxHp && furina != null) {
+                float energyToAdd = 4.0f; 
+                furina.addEnergy(energyToAdd, PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY);        
             }
         
-            if (furina != null && ability.getOwner() != furina) { // Healing source is not Furina
-                if (preHealHp >= preMaxHp) { // Healing overflow condition.
-                    Float scheduledFlag = furina.getGlobalAbilityValues().get("_FurinaScheduledHealActive");
+        if (furina != null && ability.getOwner() != furina) { // Healing source is not Furina
+            if (preHealHp >= preMaxHp) { // Healing overflow condition.
+                Float scheduledFlag = furina.getGlobalAbilityValues().get("_FurinaScheduledHealActive");
                     if (scheduledFlag != null && scheduledFlag > 0) {
                         // Already scheduled, so do nothing.
                     } else {
@@ -224,8 +219,6 @@ if (curHp < maxHp && furina != null) {
             }
         }
         // --- End New Functionality ---
-        
-     
         return true;
     }
 }

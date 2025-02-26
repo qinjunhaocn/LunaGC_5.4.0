@@ -28,12 +28,12 @@ public final class ActionGetHPPaidDebts extends AbilityActionHandler {
             }
 
             // Override the value in the ability specials map using the overrideMapKey
-// Concatenate overrideMapKey with paiddebt directly
-String newKey = overrideMapKey + paiddebt;
+            // Concatenate overrideMapKey with paiddebt directly
+            String newKey = overrideMapKey + paiddebt;
 
-// Store the value in the map using the new key
-ability.getAbilitySpecials().put(newKey, paiddebt);
- // Store the paid debt value in the override map
+            // Store the value in the map using the new key
+            ability.getAbilitySpecials().put(newKey, paiddebt);
+            // Store the paid debt value in the override map
 
             // Optionally update the entity's fight property
             target.setFightProperty(FightProperty.FIGHT_PROP_CUR_HP_PAID_DEBTS, paiddebt);

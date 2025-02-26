@@ -87,15 +87,15 @@ public abstract class GameEntity {
     public boolean isConvertToHpDebt() {
         return convertToHpDebt;
     }
- public float getNyxValue() {
-    if (this.getGlobalAbilityValues().containsKey("NyxValue")) {
-        return this.getGlobalAbilityValues().get("NyxValue");
-    } else {
-        Grasscutter.getLogger().info("NyxValue not found");
-        return 0f;
-        
+
+    public float getNyxValue() {
+        if (this.getGlobalAbilityValues().containsKey("NyxValue")) {
+            return this.getGlobalAbilityValues().get("NyxValue");
+        } else {
+            Grasscutter.getLogger().info("NyxValue not found");
+            return 0f;    
+        }
     }
-}
     
 
     public void setConvertToHpDebt(boolean convertToHpDebt) {
@@ -171,21 +171,19 @@ public abstract class GameEntity {
     return this; // If not a gadget, return itself as the owner
 }
 
-public void onAddAbilityModifier(AbilityModifier data) {
-
-    if (data.properties == null) {
-        return;
-    }
-    float hpThresholdRatio = data.properties.Actor_HpThresholdRatio;
-    // Set limbo state (invulnerability at a certain HP threshold)
-    if (data.properties != null) {
-        if (data.state == AbilityModifier.State.Limbo && hpThresholdRatio > 0.0f) {
-            Grasscutter.getLogger().info("Limbo set to " + hpThresholdRatio);
-            this.setLimbo(hpThresholdRatio);
+    public void onAddAbilityModifier(AbilityModifier data) {
+        if (data.properties == null) {
+            return;
         }
-        
+        float hpThresholdRatio = data.properties.Actor_HpThresholdRatio;
+        // Set limbo state (invulnerability at a certain HP threshold)
+        if (data.properties != null) {
+            if (data.state == AbilityModifier.State.Limbo && hpThresholdRatio > 0.0f) {
+                Grasscutter.getLogger().info("Limbo set to " + hpThresholdRatio);
+                this.setLimbo(hpThresholdRatio);
+            }   
+        }
     }
-}
     
 
     protected MotionInfo getMotionInfo() {
@@ -265,16 +263,17 @@ public void onAddAbilityModifier(AbilityModifier data) {
        float curSpecialEnergy = getFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY);
        float maxSpecialEnergy = getFightProperty(FightProperty.FIGHT_PROP_MAX_SPECIAL_ENERGY);
        curSpecialEnergy+=energy;
-       if(curSpecialEnergy >= maxSpecialEnergy){
-        curSpecialEnergy = maxSpecialEnergy;
+       if (curSpecialEnergy >= maxSpecialEnergy){
+            curSpecialEnergy = maxSpecialEnergy;
        }
        setFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY, curSpecialEnergy);
        this.getScene().broadcastPacket(new PacketEntityFightPropUpdateNotify(this, FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY));
-}
-public void clearSpecialEnergy(){
-    setFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY, 0);
-    this.getScene().broadcastPacket(new PacketEntityFightPropUpdateNotify(this, FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY));
-}
+    }
+
+    public void clearSpecialEnergy(){
+        setFightProperty(FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY, 0);
+        this.getScene().broadcastPacket(new PacketEntityFightPropUpdateNotify(this, FightProperty.FIGHT_PROP_CUR_SPECIAL_ENERGY));
+    }
 
     public void damage(float amount, ElementType attackType) {
         this.damage(amount, 0, attackType);

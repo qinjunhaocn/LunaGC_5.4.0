@@ -75,7 +75,6 @@ public class EntityVehicle extends EntityBaseGadget {
                         .setCurStamina(getCurStamina())
                         .setCurPhlogiston(getCurPhlogiston())
                         .setTransformEntityId(transformEntityId)
-
                         .build();
 
         EntityAuthorityInfo authority =

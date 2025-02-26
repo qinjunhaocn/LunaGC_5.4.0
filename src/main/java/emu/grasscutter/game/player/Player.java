@@ -82,7 +82,7 @@ public class Player implements PlayerHook, FieldFetch {
     @Getter private String nickname;
     @Getter private String signature;
     @Getter private int headImage;
-     @Getter private Map<Integer, Set<Integer>> sceneTags;
+    @Getter private Map<Integer, Set<Integer>> sceneTags;
     @Getter private int nameCardId = 210001;
     @Getter private Position position;
     @Getter @Setter private Position prevPos;
@@ -116,7 +116,7 @@ public class Player implements PlayerHook, FieldFetch {
     @Getter private Set<Integer> unlockedForgingBlueprints;
     @Getter private Set<Integer> unlockedCombines;
     @Getter private Set<Integer> unlockedFurniture;
-        @Getter private Set<Integer> unlockedFurnitureSuite;
+    @Getter private Set<Integer> unlockedFurnitureSuite;
     @Getter private Map<Long, ExpeditionInfo> expeditionInfo;
     @Getter private Map<Integer, Integer> unlockedRecipies;
     @Getter private List<ActiveForgeData> activeForges;
@@ -362,12 +362,8 @@ public class Player implements PlayerHook, FieldFetch {
     public int getUid() {
         return id;
     }
-// Method to get the Phlogiston value from the AbilityScalarValueEntry
-// Method to get the current Phlogiston value
-
-
-
-
+    // Method to get the Phlogiston value from the AbilityScalarValueEntry
+    // Method to get the current Phlogiston value
 
     public void setUid(int id) {
         this.id = id;
@@ -383,11 +379,6 @@ public class Player implements PlayerHook, FieldFetch {
             this.account = DatabaseHelper.getAccountById(this.accountId);
         return this.account;
     }
-
-    
-
-
-
 
     /**
      * @return The player's session key.

@@ -19,8 +19,6 @@ public final class ActionLoseHP extends AbilityActionHandler {
                         Grasscutter.getLogger().debug("Target: {}", target);
                 }
              
-            
-                
                 if (owner instanceof EntityClientGadget ownerGadget) {
                     owner = ownerGadget.getScene().getEntityById(ownerGadget.getOwnerEntityId());
         
@@ -38,7 +36,7 @@ public final class ActionLoseHP extends AbilityActionHandler {
     
 
         if (owner == null) {
-       owner = findOwnerEntity(ability);
+            owner = findOwnerEntity(ability);
         }   
         String healtag = action.healTag;
         if ("Furina_ElementalArt_LoseHP".equals(healtag)) {
@@ -47,7 +45,6 @@ public final class ActionLoseHP extends AbilityActionHandler {
             target.getWorld().broadcastPacket(new PacketServerGlobalValueChangeNotify(target, "Furina_ElementalArt_LoseHP", 1.0f));
         }
  
-
         if (action.enableLockHP && target.isLockHP()) {
             return true;
         }
@@ -59,8 +56,7 @@ public final class ActionLoseHP extends AbilityActionHandler {
 
         var amountByCasterMaxHPRatio = action.amountByCasterMaxHPRatio.get(ability);
         var amountByCasterAttackRatio = action.amountByCasterAttackRatio.get(ability);
-        var amountByCasterCurrentHPRatio =
-                action.amountByCasterCurrentHPRatio.get(ability); // Seems unused on server
+        var amountByCasterCurrentHPRatio = action.amountByCasterCurrentHPRatio.get(ability); // Seems unused on server
         var amountByTargetCurrentHPRatio = action.amountByTargetCurrentHPRatio.get(ability);
         var amountByTargetMaxHPRatio = action.amountByTargetMaxHPRatio.get(ability);
         var limboByTargetMaxHPRatio = action.limboByTargetMaxHPRatio.get(ability);
@@ -89,11 +85,10 @@ public final class ActionLoseHP extends AbilityActionHandler {
         if (amountToLose == 0) amountToLose = 0.47f * target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
 
         target.damage(amountToLose);
-                
-            
 
         return true;
     }
+    
     private GameEntity findOwnerEntity(Ability ability) {
         // Get the current owner entity
         GameEntity nextOwner = ability.getPlayerOwner().getScene().getEntityById(16777225);

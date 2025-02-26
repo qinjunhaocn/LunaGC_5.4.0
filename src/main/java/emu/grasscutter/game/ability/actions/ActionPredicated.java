@@ -42,7 +42,7 @@ public final class ActionPredicated extends AbilityActionHandler {
     }
 
     // Populates the targetPredicates list// Populates the targetPredicates list
-private void populateTargetPredicates(AbilityModifier.AbilityModifierAction action, Ability ability) {
+    private void populateTargetPredicates(AbilityModifier.AbilityModifierAction action, Ability ability) {
     // Example of adding a predicate
     Map<String, Object> predicate = new HashMap<>();
     predicate.put("$type", AbilityModifier.AbilityModifierAction.Type.ByTargetGlobalValue);
@@ -52,7 +52,7 @@ private void populateTargetPredicates(AbilityModifier.AbilityModifierAction acti
     // Add this predicate to the list
     action.targetPredicates.add(predicate);
     // Removed unnecessary return statement
-}
+    }
 
     private boolean checkPredicates(AbilityModifier.AbilityModifierAction action, GameEntity target, Ability ability) {
         if (action.targetPredicates == null || action.targetPredicates.isEmpty()) {
@@ -61,14 +61,12 @@ private void populateTargetPredicates(AbilityModifier.AbilityModifierAction acti
 
         for (var predicate : action.targetPredicates) {
             if (predicate.get(AbilityModifier.AbilityModifierAction.Type.ByTargetGlobalValue).equals(AbilityModifier.AbilityModifierAction.Type.ByTargetGlobalValue)) {
-                
             
                 String key = (String) predicate.get(action.key);
                 float expectedValue = (float) predicate.get(action.ratio.get(ability));
 
                 // Get the current GlobalValue
                 float currentValue = (float) target.getGlobalAbilityValues().getOrDefault(key, 0.0f);
-
 
                 Grasscutter.getLogger().debug("Checking global value: key={}, expected={}, actual={}", key, expectedValue, currentValue);
 
