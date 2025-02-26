@@ -165,6 +165,8 @@ Method 2:
 
 - find out
 
+### most new features are produced by manu's breeding cycle, please wait for next pregnancy
+
 ## Credit
 
 patch Repository [hk4e-patch-universal](https://github.com/oureveryday/hk4e-patch-universal)
