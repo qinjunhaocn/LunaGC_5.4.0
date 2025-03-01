@@ -144,6 +144,7 @@ public class StaminaManager extends BasePlayerManager {
     private GameSession cachedSession = null;
     private GameEntity cachedEntity = null;
     public int staminaRecoverDelay = 0;
+    private long lastCostStaminaTime = 0;
     private int lastSkillId = 0;
     private int lastSkillCasterId = 0;
     private boolean lastSkillFirstTick = true;
@@ -180,6 +181,14 @@ public class StaminaManager extends BasePlayerManager {
 
     public int getCurrentVehicleStamina() {
         return vehicleStamina;
+    }
+    
+    public long getLastCostStaminaTime() {
+    return lastCostStaminaTime;
+    }
+
+    public void setLastCostStaminaTime(long time) {
+    this.lastCostStaminaTime = time;
     }
 
     public boolean addCurrentStamina(int amount) {
