@@ -1,7 +1,7 @@
 # LunaGC-5.4.0
 ## A better, more functional version of the holy Grasscutter
 Old Discord https://discord.gg/8vSyTHVphj
-
+## Big update soon, probably..
 Please contribute actively to this repository
 
 # Setup Guide
