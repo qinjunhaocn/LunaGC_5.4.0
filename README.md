@@ -1,4 +1,5 @@
 # LunaGC-5.4.0
+## THIS IS THE ONLY PUBLIC PS WITH MOB SPAWNS OVER VERSION 3.2!! NATLAN AND FONTAINE ARE FILLED :3
 ## A better, more functional version of the holy Grasscutter
 Old Discord https://discord.gg/8vSyTHVphj
 ## Big update soon, probably..
@@ -166,6 +167,7 @@ Method 2:
 - find out
 
 ### most new features are produced by manu's breeding cycle, please wait for next pregnancy
+### fuck yuuki - manu
 
 ## Credit
 
