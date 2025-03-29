@@ -6,6 +6,12 @@ import emu.grasscutter.game.ability.Ability;
 import emu.grasscutter.game.entity.*;
 import emu.grasscutter.game.props.FightProperty;
 import emu.grasscutter.Grasscutter;
+import emu.grasscutter.net.proto.ChangeHpReasonOuterClass.ChangeHpReason;
+import emu.grasscutter.server.packet.send.PacketEntityFightPropChangeReasonNotify;
+import emu.grasscutter.server.packet.send.PacketEntityFightPropUpdateNotify;
+import emu.grasscutter.net.proto.PropChangeReasonOuterClass;
+import emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason;
+import emu.grasscutter.server.packet.send.PacketEntityAnimatorPairValueInfoNotify;
 import emu.grasscutter.server.packet.send.PacketServerGlobalValueChangeNotify;
 
 @AbilityAction(AbilityModifierAction.Type.LoseHP)
@@ -13,21 +19,19 @@ public final class ActionLoseHP extends AbilityActionHandler {
     @Override
     public boolean execute(
             Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
+                Grasscutter.getLogger().info("LoseHP executed");
                 var owner = ability.getOwner();
-                if (owner != null) {
-                        Grasscutter.getLogger().debug("Owner: {}", owner);
-                        Grasscutter.getLogger().debug("Target: {}", target);
-                }
+                
              
-                if (owner instanceof EntityClientGadget ownerGadget) {
-                    owner = ownerGadget.getScene().getEntityById(ownerGadget.getOwnerEntityId());
-        
-                     // Caster for EntityClientGadget
             
-                    // Handle special gadget cases where the owner needs to be set to the current avatar
-                    if (ownerGadget.gadgetId == 41089013 || ownerGadget.gadgetId == 41089012 || ownerGadget.gadgetId == 41089011) {
-                        owner = ability.getPlayerOwner().getTeamManager().getCurrentAvatarEntity();
-                    }
+                
+                if (owner instanceof EntityClientGadget ownerGadget) {
+                    Grasscutter.getLogger().info("Owner is a client gadget");
+                    owner = ownerGadget.getScene().getEntityById(ownerGadget.getOwnerEntityId());
+                    
+        
+            
+                   
             
                     // Check if the ability is invulnerable for the owner
                     if (ownerGadget.getOwner().getAbilityManager().isAbilityInvulnerable()) return true;
@@ -36,15 +40,9 @@ public final class ActionLoseHP extends AbilityActionHandler {
     
 
         if (owner == null) {
-            owner = findOwnerEntity(ability);
+       Grasscutter.getLogger().info("Owner is null");
         }   
-        String healtag = action.healTag;
-        if ("Furina_ElementalArt_LoseHP".equals(healtag)) {
-            Grasscutter.getLogger().info("Furina_ElementalArt_LoseHP enabled");
-            target.getGlobalAbilityValues().put("Furina_ElementalArt_LoseHP", 1.0f);
-            target.getWorld().broadcastPacket(new PacketServerGlobalValueChangeNotify(target, "Furina_ElementalArt_LoseHP", 1.0f));
-        }
- 
+
         if (action.enableLockHP && target.isLockHP()) {
             return true;
         }
@@ -56,7 +54,8 @@ public final class ActionLoseHP extends AbilityActionHandler {
 
         var amountByCasterMaxHPRatio = action.amountByCasterMaxHPRatio.get(ability);
         var amountByCasterAttackRatio = action.amountByCasterAttackRatio.get(ability);
-        var amountByCasterCurrentHPRatio = action.amountByCasterCurrentHPRatio.get(ability); // Seems unused on server
+        var amountByCasterCurrentHPRatio =
+                action.amountByCasterCurrentHPRatio.get(ability); // Seems unused on server
         var amountByTargetCurrentHPRatio = action.amountByTargetCurrentHPRatio.get(ability);
         var amountByTargetMaxHPRatio = action.amountByTargetMaxHPRatio.get(ability);
         var limboByTargetMaxHPRatio = action.limboByTargetMaxHPRatio.get(ability);
@@ -85,16 +84,10 @@ public final class ActionLoseHP extends AbilityActionHandler {
         if (amountToLose == 0) amountToLose = 0.47f * target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
 
         target.damage(amountToLose);
+        target.getWorld().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(target, FightProperty.FIGHT_PROP_CUR_HP, -amountToLose, PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY, ChangeHpReason.CHANGE_HP_SUB_ABILITY));
+                
+            
 
         return true;
-    }
-    
-    private GameEntity findOwnerEntity(Ability ability) {
-        // Get the current owner entity
-        GameEntity nextOwner = ability.getPlayerOwner().getScene().getEntityById(16777225);
-
-
-        // Return the final owner entity once we reach an entity that is not a gadget
-        return nextOwner;
     }
 }
