@@ -6,75 +6,54 @@ import emu.grasscutter.game.ability.Ability;
 import emu.grasscutter.game.entity.GameEntity;
 import emu.grasscutter.game.ability.AbilityManager;
 import emu.grasscutter.game.ability.AbilityModifierController;
+import emu.grasscutter.net.proto.ChangeHpReasonOuterClass.ChangeHpReason;
+import emu.grasscutter.server.packet.send.PacketEntityFightPropChangeReasonNotify;
+import emu.grasscutter.server.packet.send.PacketEntityFightPropUpdateNotify;
+import emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason;
+import emu.grasscutter.game.entity.*;
 import emu.grasscutter.game.player.Player;
+import emu.grasscutter.net.proto.PropChangeReasonOuterClass;
+import emu.grasscutter.game.props.FightProperty;
 import emu.grasscutter.server.packet.send.PacketServerGlobalValueChangeNotify;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Random;
 import emu.grasscutter.Grasscutter;
 import emu.grasscutter.game.ability.actions.ActionChangePhlogiston;
 
 @AbilityAction(value = AbilityModifier.AbilityModifierAction.Type.Predicated)
 public final class ActionPredicated extends AbilityActionHandler {
     
+    private static final float[] DAMAGE_MULTIPLIERS = {0.024f, 0.016f, 0.024f, 0.016f, 0.024f, 0.016f, 0.024f, 0.036f};
+    private static final Random RANDOM = new Random();
+
     @Override
     public boolean execute(Ability ability, AbilityModifier.AbilityModifierAction action, ByteString abilityData, GameEntity target) {
-        Grasscutter.getLogger().debug("Predicated action executed for Ability: {}", ability);
-        Grasscutter.getLogger().debug("Predicated action details: {}", action);
-
-        // Modify targetPredicates list (adding the necessary keys and values)
-        populateTargetPredicates(action, ability);
-
-        // Check predicates first
-        boolean predicateSatisfied = checkPredicates(action, target, ability);
-
-        // Execute actions based on predicate check
-        if (predicateSatisfied) {
-            for (var successAction : action.successActions) {
-                this.abilityManager.executeAction(ability, successAction, abilityData, target);
-            }
-        } else {
-            for (var failActions : action.failActions) {
-                this.abilityManager.executeAction(ability, failActions, abilityData, target);
-            }
+        Grasscutter.getLogger().info("Predicated action executed for Target: {}", target.getId());
+        var owner = ability.getOwner();
+        Grasscutter.getLogger().info("Predicated action details: {}", ability.getData().abilityName);
+        if (owner instanceof EntityClientGadget ownerGadget) {
+            owner = ownerGadget.getScene().getEntityById(ownerGadget.getOwnerEntityId());
         }
-        return predicateSatisfied; // Return true if predicates are satisfied, else false
-    }
-
-    // Populates the targetPredicates list// Populates the targetPredicates list
-    private void populateTargetPredicates(AbilityModifier.AbilityModifierAction action, Ability ability) {
-    // Example of adding a predicate
-    Map<String, Object> predicate = new HashMap<>();
-    predicate.put("$type", AbilityModifier.AbilityModifierAction.Type.ByTargetGlobalValue);
-    predicate.put("key", action.key);
-    predicate.put("ratio", action.ratio.get(ability));
-
-    // Add this predicate to the list
-    action.targetPredicates.add(predicate);
-    // Removed unnecessary return statement
-    }
-
-    private boolean checkPredicates(AbilityModifier.AbilityModifierAction action, GameEntity target, Ability ability) {
-        if (action.targetPredicates == null || action.targetPredicates.isEmpty()) {
-            return false;
-        }
-
-        for (var predicate : action.targetPredicates) {
-            if (predicate.get(AbilityModifier.AbilityModifierAction.Type.ByTargetGlobalValue).equals(AbilityModifier.AbilityModifierAction.Type.ByTargetGlobalValue)) {
+        
+         if (owner instanceof EntityAvatar avatar && avatar.getAvatar().getAvatarId() == 10000089) {
+            var team = ability.getPlayerOwner().getTeamManager().getActiveTeam();
+            float multiplier = DAMAGE_MULTIPLIERS[RANDOM.nextInt(DAMAGE_MULTIPLIERS.length)];
             
-                String key = (String) predicate.get(action.key);
-                float expectedValue = (float) predicate.get(action.ratio.get(ability));
 
-                // Get the current GlobalValue
-                float currentValue = (float) target.getGlobalAbilityValues().getOrDefault(key, 0.0f);
-
-                Grasscutter.getLogger().debug("Checking global value: key={}, expected={}, actual={}", key, expectedValue, currentValue);
-
-                if (currentValue >= expectedValue) {
-                    return true; // One satisfied predicate is enough to trigger successActions
+            for (EntityAvatar teamMember : team) {
+                float curHP = teamMember.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
+                float maxHP = teamMember.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
+                float consumeHP = multiplier * teamMember.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
+                if (curHP >= 0.5f * maxHP) {
+                    teamMember.damage(consumeHP);
+                    teamMember.getWorld().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(teamMember, FightProperty.FIGHT_PROP_CUR_HP, -consumeHP, PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY, ChangeHpReason.CHANGE_HP_SUB_ABILITY));
                 }
             }
         }
-        return false; // Return false if none of the predicates are satisfied
+
+
+    return true;
     }
 }
