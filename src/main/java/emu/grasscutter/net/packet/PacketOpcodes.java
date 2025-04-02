@@ -351,6 +351,8 @@ public final class PacketOpcodes {
     public static final int GachaWishRsp = 137;
     public static final int PlayerReportRsp = 8507;
     public static final int HomeLimitedShopInfoNotify = 23760;
+    public static final int EntityAnimatorPairValueInfoNotify = 2868; // definitely not right
+    public static final int VehiclePhlogistonPointsNotify = 5344;
 
     // the protos scare me
     public static final int GetActivityInfoRsp = 408;
