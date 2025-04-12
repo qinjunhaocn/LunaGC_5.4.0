@@ -167,7 +167,7 @@ Method 2:
 - find out
 
 ### most new features are produced by manu's breeding cycle, please wait for next pregnancy
-### fuck yuuki - manu
+### fuck yuuki, fuck pedo-luna, fuck snooshen, fuck the jewish transgender person - manu
 
 ## Credit
 
