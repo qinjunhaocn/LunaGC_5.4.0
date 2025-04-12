@@ -45,15 +45,25 @@ public final class ActionPredicated extends AbilityActionHandler {
             for (EntityAvatar teamMember : team) {
                 float curHP = teamMember.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
                 float maxHP = teamMember.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
-                float consumeHP = multiplier * teamMember.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
-                if (curHP >= 0.5f * maxHP) {
+                float consumeHP = multiplier * maxHP;
+                int avatarId = teamMember.getAvatar().getAvatarId();
+            
+                boolean isFurina = avatarId == 10000089;
+            
+                if ((isFurina && curHP > 0.55f * maxHP) || (!isFurina && curHP > 0.5f * maxHP)) {
                     teamMember.damage(consumeHP);
-                    teamMember.getWorld().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(teamMember, FightProperty.FIGHT_PROP_CUR_HP, -consumeHP, PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY, ChangeHpReason.CHANGE_HP_SUB_ABILITY));
+                    teamMember.getWorld().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(
+                        teamMember,
+                        FightProperty.FIGHT_PROP_CUR_HP,
+                        -consumeHP,
+                        PropChangeReasonOuterClass.PropChangeReason.PROP_CHANGE_REASON_ABILITY,
+                        ChangeHpReason.CHANGE_HP_SUB_ABILITY
+                    ));
                 }
             }
-        }
+        }  
 
 
     return true;
     }
-}
+    }

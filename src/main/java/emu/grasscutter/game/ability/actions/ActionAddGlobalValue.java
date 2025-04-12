@@ -5,6 +5,9 @@ import emu.grasscutter.data.binout.AbilityModifier.AbilityModifierAction;
 import emu.grasscutter.game.ability.Ability;
 import emu.grasscutter.data.common.DynamicFloat;
 import emu.grasscutter.game.entity.GameEntity;
+import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
+import emu.grasscutter.Grasscutter;
+import emu.grasscutter.game.props.FightProperty;
 import emu.grasscutter.server.packet.send.PacketServerGlobalValueChangeNotify;
 
 @AbilityAction(AbilityModifierAction.Type.AddGlobalValue)
@@ -12,23 +15,43 @@ public final class ActionAddGlobalValue extends AbilityActionHandler {
     @Override
     public boolean execute(
             Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
-        // Get the key and value to add
+        var owner = ability.getOwner();
+        var properties = new Object2FloatOpenHashMap<String>();
+
+        for (var property : FightProperty.values()) {
+  
+   var name = property.name();
+            var value = owner.getFightProperty(property);
+            properties.put(name, value);
+        }
+    
+     
+        properties.putAll(ability.getAbilitySpecials());
         String valueKey = action.key;
-        float valueToAdd = action.ratio.get(ability);
+        float valueToAdd = action.ratio.get(properties, 0f);
+        float maxValue = action.maxValue.get(properties, 0f);
+        float minValue = action.minValue.get(properties, 0f);
 
-        // Get the current value from the target's global values
-        float currentGlobalValue = target.getGlobalAbilityValues().getOrDefault(valueKey, 1f);
+        float currentGlobalValue = target.getGlobalAbilityValues().getOrDefault(valueKey, 0f);
 
-        // Add the specified value to the current global value
+
         float newValue = currentGlobalValue + valueToAdd;
+        if (newValue > maxValue) {
+            newValue = maxValue;
+        }
+        if (newValue < minValue) {
+            newValue = minValue;
+        }
 
-        // Update the global value in the target's global values
         target.getGlobalAbilityValues().put(valueKey, newValue);
+        Grasscutter.getLogger().info("Global value {} updated to {}", valueKey, newValue);
 
-        // Notify the target about the updated global value
+     
+
+
         target.onAbilityValueUpdate();
 
-        // Send a value update packet
+ 
         target
                 .getScene()
                 .getHost()
