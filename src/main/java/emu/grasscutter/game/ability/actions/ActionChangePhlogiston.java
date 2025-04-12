@@ -16,6 +16,7 @@ import emu.grasscutter.game.props.FightProperty;
 import emu.grasscutter.game.props.PlayerProperty;
 import emu.grasscutter.game.entity.GameEntity;
 import emu.grasscutter.game.avatar.*;
+import emu.grasscutter.game.entity.EntityVehicle;
 import emu.grasscutter.net.proto.AbilityScalarTypeOuterClass;
 import emu.grasscutter.game.ability.mixins.*;
 import emu.grasscutter.net.proto.AbilityScalarValueEntryOuterClass;
@@ -25,6 +26,7 @@ import emu.grasscutter.game.player.Player;
 import emu.grasscutter.game.player.*;
 import emu.grasscutter.server.packet.send.PacketPlayerPropChangeNotify;
 import emu.grasscutter.server.packet.send.PacketPlayerPropChangeReasonNotify;
+import emu.grasscutter.server.packet.send.PacketVehiclePhlogistonPointsNotify;
 import emu.grasscutter.server.packet.send.PacketServerGlobalValueChangeNotify;
 import emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason;
 import emu.grasscutter.game.entity.EntityAvatar;
@@ -37,18 +39,10 @@ public final class ActionChangePhlogiston extends AbilityActionHandler {
     @Override
     public boolean execute(Ability ability, AbilityModifier.AbilityModifierAction action, ByteString abilityData, GameEntity target) {
         var owner = ability.getOwner();
-        PlayerProperty prop = PlayerProperty.PROP_CUR_PHLOGISTON;
-        int delta = action.ratio.getInt(ability);
-        Grasscutter.getLogger().info("AbilityData: " + abilityData);
         Player player = ability.getPlayerOwner();
         float curPhlogiston = player.getPhlogistonValue();
-        if (curPhlogiston == 0.0f) {
-            return false;
-        }
-        Grasscutter.getLogger().info("Current Phlogiston Value: " + curPhlogiston);
         float consume = action.ratio.get(ability);
-        if (consume == 0.0f) consume = 5.0f; // i have no current solution for this so sob
-        Grasscutter.getLogger().info("Consume Value (Action Ratio): " + consume);
+        if (consume == 0.0f) consume = 5.0f; // i have no current solution for this so sob, only for xilonen sprint
         String determineType = action.determineType;
         float updatedPhlogistonValue = curPhlogiston - consume;
         if (determineType != null) {
@@ -59,15 +53,36 @@ public final class ActionChangePhlogiston extends AbilityActionHandler {
             }
         }
         updatedPhlogistonValue = Math.max(0, Math.min(100, updatedPhlogistonValue)); 
+        if (owner instanceof EntityVehicle vehicle) {
+            float curVehiclePhlogiston = vehicle.getCurPhlogiston();
+            if (curVehiclePhlogiston != 0.0f) {
+                
+            Grasscutter.getLogger().info("Current Vehicle Phlogiston Value: " + curVehiclePhlogiston);
+            updatedPhlogistonValue = curVehiclePhlogiston - consume;
+            updatedPhlogistonValue = Math.max(0, Math.min(50, updatedPhlogistonValue));
+            vehicle.setCurPhlogiston(updatedPhlogistonValue);
+            ability.getPlayerOwner().sendPacket(new PacketVehiclePhlogistonPointsNotify(vehicle));
+            Grasscutter.getLogger().info("Updated Vehicle Phlogiston Value: " + updatedPhlogistonValue);
+            return true;
+            }
+            if (curVehiclePhlogiston == 0.0f) { 
+                updatedPhlogistonValue = curPhlogiston - consume;
+                updatedPhlogistonValue = Math.max(0, Math.min(100, updatedPhlogistonValue));
+                ability.getPlayerOwner().setPhlogistonValue(updatedPhlogistonValue);
+                ability.getPlayerOwner().sendPacket(new PacketServerGlobalValueChangeNotify(
+ability.getPlayerOwner().getTeamManager().getEntity().getId(),
+    "SGV_PlayerTeam_Phlogiston", 
+    updatedPhlogistonValue 
+    ));
+    return true;
+            }
+        }
             ability.getPlayerOwner().setPhlogistonValue(updatedPhlogistonValue);
-            
             ability.getPlayerOwner().sendPacket(new PacketServerGlobalValueChangeNotify(
 ability.getPlayerOwner().getTeamManager().getEntity().getId(),
     "SGV_PlayerTeam_Phlogiston", 
     updatedPhlogistonValue 
     ));
-    ability.getPlayerOwner().sendPacket(new PacketPlayerPropChangeNotify(player, PlayerProperty.PROP_CUR_PHLOGISTON, delta));
-    ability.getPlayerOwner().sendPacket(new PacketPlayerPropChangeReasonNotify(player, prop, delta, delta, PropChangeReason.PROP_CHANGE_REASON_ABILITY));
         
         return true;
     }
