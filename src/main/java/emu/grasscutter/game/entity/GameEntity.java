@@ -239,7 +239,7 @@ public abstract class GameEntity {
                                                                 ? PropChangeReason.PROP_CHANGE_REASON_NONE
                                                                 : PropChangeReason.PROP_CHANGE_REASON_ABILITY,
                                                               
-                                                        ChangeHpDebtsReason.CHANGE_HP_DEBTS_CLEAR
+                                                        ChangeHpDebtsReason.CHANGE_HP_DEBTS_PAY_FINISH
                                                        ));
             }
         }
