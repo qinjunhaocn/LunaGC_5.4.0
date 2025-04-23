@@ -24,8 +24,7 @@ public final class ActionAddGlobalValue extends AbilityActionHandler {
             var value = owner.getFightProperty(property);
             properties.put(name, value);
         }
-    
-     
+
         properties.putAll(ability.getAbilitySpecials());
         String valueKey = action.key;
         float valueToAdd = action.ratio.get(properties, 0f);
@@ -33,7 +32,6 @@ public final class ActionAddGlobalValue extends AbilityActionHandler {
         float minValue = action.minValue.get(properties, 0f);
 
         float currentGlobalValue = target.getGlobalAbilityValues().getOrDefault(valueKey, 0f);
-
 
         float newValue = currentGlobalValue + valueToAdd;
         if (newValue > maxValue) {
@@ -46,12 +44,7 @@ public final class ActionAddGlobalValue extends AbilityActionHandler {
         target.getGlobalAbilityValues().put(valueKey, newValue);
         Grasscutter.getLogger().info("Global value {} updated to {}", valueKey, newValue);
 
-     
-
-
         target.onAbilityValueUpdate();
-
- 
         target
                 .getScene()
                 .getHost()

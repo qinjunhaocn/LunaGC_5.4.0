@@ -1,8 +1,5 @@
 package emu.grasscutter.game.ability.actions;
 
-
-
-
 import java.util.HashMap;
 
 import com.google.protobuf.ByteString;
@@ -42,7 +39,7 @@ public final class ActionChangePhlogiston extends AbilityActionHandler {
         Player player = ability.getPlayerOwner();
         float curPhlogiston = player.getPhlogistonValue();
         float consume = action.ratio.get(ability);
-        if (consume == 0.0f) consume = 5.0f; // i have no current solution for this so sob, only for xilonen sprint
+        if (consume == 0.0f) consume = 5.0f;
         String determineType = action.determineType;
         float updatedPhlogistonValue = curPhlogiston - consume;
         if (determineType != null) {
@@ -56,34 +53,34 @@ public final class ActionChangePhlogiston extends AbilityActionHandler {
         if (owner instanceof EntityVehicle vehicle) {
             float curVehiclePhlogiston = vehicle.getCurPhlogiston();
             if (curVehiclePhlogiston != 0.0f) {
-                
+
             Grasscutter.getLogger().info("Current Vehicle Phlogiston Value: " + curVehiclePhlogiston);
             updatedPhlogistonValue = curVehiclePhlogiston - consume;
             updatedPhlogistonValue = Math.max(0, Math.min(50, updatedPhlogistonValue));
             vehicle.setCurPhlogiston(updatedPhlogistonValue);
             ability.getPlayerOwner().sendPacket(new PacketVehiclePhlogistonPointsNotify(vehicle));
+
             Grasscutter.getLogger().info("Updated Vehicle Phlogiston Value: " + updatedPhlogistonValue);
+ 
             return true;
             }
+
             if (curVehiclePhlogiston == 0.0f) { 
                 updatedPhlogistonValue = curPhlogiston - consume;
                 updatedPhlogistonValue = Math.max(0, Math.min(100, updatedPhlogistonValue));
                 ability.getPlayerOwner().setPhlogistonValue(updatedPhlogistonValue);
                 ability.getPlayerOwner().sendPacket(new PacketServerGlobalValueChangeNotify(
-ability.getPlayerOwner().getTeamManager().getEntity().getId(),
-    "SGV_PlayerTeam_Phlogiston", 
-    updatedPhlogistonValue 
-    ));
-    return true;
+                    ability.getPlayerOwner().getTeamManager().getEntity().getId(),
+                        "SGV_PlayerTeam_Phlogiston", updatedPhlogistonValue 
+                    ));
+                return true;
             }
         }
             ability.getPlayerOwner().setPhlogistonValue(updatedPhlogistonValue);
             ability.getPlayerOwner().sendPacket(new PacketServerGlobalValueChangeNotify(
-ability.getPlayerOwner().getTeamManager().getEntity().getId(),
-    "SGV_PlayerTeam_Phlogiston", 
-    updatedPhlogistonValue 
-    ));
-        
+                ability.getPlayerOwner().getTeamManager().getEntity().getId(),
+                "SGV_PlayerTeam_Phlogiston", updatedPhlogistonValue 
+            ));
         return true;
     }
 }

@@ -41,7 +41,6 @@ public final class ActionPredicated extends AbilityActionHandler {
             var team = ability.getPlayerOwner().getTeamManager().getActiveTeam();
             float multiplier = DAMAGE_MULTIPLIERS[RANDOM.nextInt(DAMAGE_MULTIPLIERS.length)];
             
-
             for (EntityAvatar teamMember : team) {
                 float curHP = teamMember.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP);
                 float maxHP = teamMember.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
@@ -61,9 +60,7 @@ public final class ActionPredicated extends AbilityActionHandler {
                     ));
                 }
             }
-        }  
-
-
+        }
     return true;
     }
-    }
+}

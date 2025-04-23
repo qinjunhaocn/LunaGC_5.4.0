@@ -346,24 +346,27 @@ public final class AbilityManager extends BasePlayerManager {
             }
         }
     }
-private void handleClearGlobalFloatValue(AbilityInvokeEntry invoke)
-        throws InvalidProtocolBufferException {
-    var entity = this.player.getScene().getEntityById(invoke.getEntityId());
-    if (entity == null) return;
-    var entry = AbilityScalarValueEntry.parseFrom(invoke.getAbilityData());
-    if (entry == null) return;
 
+private void handleClearGlobalFloatValue(AbilityInvokeEntry invoke)
+    throws InvalidProtocolBufferException {
+    var entity = this.player.getScene().getEntityById(invoke.getEntityId());
+
+    if (entity == null) return;
+
+    var entry = AbilityScalarValueEntry.parseFrom(invoke.getAbilityData());
+
+    if (entry == null) return;
     String key = null;
+
     if (entry.getKey().hasStr()) {
         key = entry.getKey().getStr();
     } else if (entry.getKey().hasHash()) {
         key = GameData.getAbilityHashes().get(entry.getKey().getHash());
     }
-    if (key == null) return;
 
+    if (key == null) return;
     entity.getGlobalAbilityValues().remove(key);
     Grasscutter.getLogger().info("Cleared global float value: {}", key);
-
     entity.onAbilityValueUpdate();
 }
 

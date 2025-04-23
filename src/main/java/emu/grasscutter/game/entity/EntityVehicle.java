@@ -3,7 +3,6 @@ package emu.grasscutter.game.entity;
 import emu.grasscutter.GameConstants;
 import emu.grasscutter.data.GameData;
 import emu.grasscutter.data.binout.config.ConfigEntityGadget;
-import emu.grasscutter.data.excels.vehicle.*;
 import emu.grasscutter.data.excels.GadgetData;
 import emu.grasscutter.data.excels.avatar.VehicleData;
 import emu.grasscutter.net.proto.AbilityControlBlockOuterClass.AbilityControlBlock;
@@ -35,7 +34,6 @@ import emu.grasscutter.utils.helpers.ProtoHelper;
 import it.unimi.dsi.fastutil.ints.*;
 import java.util.*;
 import javax.annotation.Nullable;
-
 import lombok.*;
 
 public class EntityVehicle extends EntityBaseGadget {
@@ -56,23 +54,22 @@ public class EntityVehicle extends EntityBaseGadget {
     public int transformEntityId;
     public EntityVehicle(
             Scene scene, Player player, int gadgetId, int pointId, Position pos, Position rot) {
-        super(scene, pos, rot);
-        this.owner = player;
-        this.id = getScene().getWorld().getNextEntityId(EntityIdType.GADGET);
-        this.fightProperties = new Int2FloatOpenHashMap();
-        this.gadgetId = gadgetId;
-        this.pointId = pointId;
-        this.curStamina = 240; // might be in configGadget.GCALKECLLLP.JBAKBEFIMBN.ANBMPHPOALP
-        this.curPhlogiston = 50;
-            
-        this.vehicleMembers = new ArrayList<>();
-        GadgetData data = GameData.getGadgetDataMap().get(gadgetId);
-        if (data != null && data.getJsonName() != null) {
-            this.configGadget = GameData.getGadgetConfigData().get(data.getJsonName());
-        }
+                super(scene, pos, rot);
+                this.owner = player;
+                this.id = getScene().getWorld().getNextEntityId(EntityIdType.GADGET);
+                this.fightProperties = new Int2FloatOpenHashMap();
+                this.gadgetId = gadgetId;
+                this.pointId = pointId;
+                this.curStamina = 240; // might be in configGadget.GCALKECLLLP.JBAKBEFIMBN.ANBMPHPOALP
+                this.curPhlogiston = 50;
+                this.vehicleMembers = new ArrayList<>();
+                GadgetData data = GameData.getGadgetDataMap().get(gadgetId);
+                if (data != null && data.getJsonName() != null) {
+                        this.configGadget = GameData.getGadgetConfigData().get(data.getJsonName());
+                }
 
-        fillFightProps(configGadget);
-         this.initAbilities(); 
+                fillFightProps(configGadget);
+                this.initAbilities();
     }
 
     @Override
@@ -81,16 +78,16 @@ public class EntityVehicle extends EntityBaseGadget {
         this.addFightProperty(FightProperty.FIGHT_PROP_CUR_SPEED, 0);
         this.addFightProperty(FightProperty.FIGHT_PROP_CHARGE_EFFICIENCY, 0);
     }
-        private void addConfigAbility(ConfigAbilityData abilityData) {
+
+    private void addConfigAbility(ConfigAbilityData abilityData) {
         var data = GameData.getAbilityData(abilityData.getAbilityName());
+
         if (data != null)
             this.getScene().getWorld().getHost().getAbilityManager().addAbilityToEntity(this, data);
     }
 
-
     @Override
     public SceneEntityInfo toProto() {
-           
 
         VehicleInfo vehicle =
                 VehicleInfo.newBuilder()
@@ -98,7 +95,6 @@ public class EntityVehicle extends EntityBaseGadget {
                         .setCurStamina(getCurStamina())
                         .setCurPhlogiston(getCurPhlogiston())
                         .setTransformEntityId(transformEntityId)
-
                         .build();
 
         EntityAuthorityInfo authority =
@@ -147,7 +143,7 @@ public class EntityVehicle extends EntityBaseGadget {
 
     @Override
     public void initAbilities() {
-        // TODO: handle pre-dynamic, static and dynamic here
+        // TODO Auto-generated method stub
         if (this.configGadget != null && this.configGadget.getAbilities() != null) {
             for (var ability : this.configGadget.getAbilities()) {
                 this.addConfigAbility(ability);

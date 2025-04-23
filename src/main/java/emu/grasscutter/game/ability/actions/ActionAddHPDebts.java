@@ -26,10 +26,8 @@ public final class ActionAddHPDebts extends AbilityActionHandler {
         }
         var properties = new Object2FloatOpenHashMap<String>();
 
-       
         for (var property : FightProperty.values()) {
-  
-   var name = property.name();
+            var name = property.name();
             var value = owner.getFightProperty(property);
             properties.put(name, value);
         }
@@ -40,8 +38,6 @@ public final class ActionAddHPDebts extends AbilityActionHandler {
         Grasscutter.getLogger().info("ActionAddHPDebts executed with debt {}", debt);
         Avatar avatar = ability.getPlayerOwner().getCurrentAvatar();
         float maxValue = action.maxValue.get(ability) * target.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
-
-        
 
             float curDebt = target.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS);
             float newDebt = curDebt + debt;

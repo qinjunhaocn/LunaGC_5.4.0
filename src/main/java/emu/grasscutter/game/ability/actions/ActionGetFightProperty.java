@@ -12,25 +12,21 @@ import emu.grasscutter.Grasscutter;
 public final class ActionGetFightProperty extends AbilityActionHandler {
     @Override
     public boolean execute(
-            Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
+        Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
 
         var owner = ability.getOwner();
         var properties = new Object2FloatOpenHashMap<String>();
-
 
         for (var property : FightProperty.values()) {
             String name = property.name();
             float value = owner.getFightProperty(property);
             properties.put(name, value);
         }
-        
 
         properties.putAll(ability.getAbilitySpecials());
 
-
         float fightPropertyValue = action.fightProp.get(properties, 0f);
         
-
         target.getGlobalAbilityValues().put(action.globalValueKey, fightPropertyValue);
         
         Grasscutter.getLogger().info("Set global value {} to {} (fight prop: {})", 

@@ -10,12 +10,13 @@ import lombok.Getter;
 
 import java.util.*;
 
-@ResourceType(name = "VehicleExcelConfigData.json", loadPriority = LoadPriority.LOW)
-public class VehicleData extends GameResource {
-@Getter(onMethod_ = @Override)
-private int id;
-@Getter
-private int featureTagGroupID;
+    @ResourceType(name = "VehicleExcelConfigData.json", loadPriority = LoadPriority.LOW)
+    public class VehicleData extends GameResource {
 
-                }
-       
+        @Getter(onMethod_ = @Override)
+        private int id;
+
+        @Getter
+        private int featureTagGroupID;
+
+}

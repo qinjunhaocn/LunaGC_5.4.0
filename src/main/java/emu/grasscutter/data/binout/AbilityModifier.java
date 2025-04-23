@@ -186,6 +186,7 @@ public class AbilityModifier implements Serializable {
             ResetAIResistTauntLevel,
             ResetAIThreatBroadcastRange,
             ResetAnimatorTrigger,
+            ReviveAvatar,
             ReviveDeadAvatar,
             ReviveElemEnergy,
             ReviveStamina,
@@ -348,6 +349,7 @@ public class AbilityModifier implements Serializable {
         public DynamicFloat maxValue = DynamicFloat.ZERO;
         public DynamicFloat targetValue = DynamicFloat.ZERO;
         public DynamicFloat costStaminaRatio = DynamicFloat.ZERO;
+        public DynamicFloat fightProp = DynamicFloat.ZERO;
         public boolean useLimitRange;
 
         public int skillID;

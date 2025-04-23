@@ -20,18 +20,18 @@ public final class ActionReviveAvatar extends AbilityActionHandler {
     @Override
     public boolean execute(
             Ability ability, AbilityModifierAction action, ByteString abilityData, GameEntity target) {
-        Player player = ability.getPlayerOwner();
+            Player player = ability.getPlayerOwner();
 
-        var owner = ability.getOwner();
-        if (owner instanceof EntityClientGadget ownerGadget) {
-            owner = ownerGadget.getScene().getEntityById(ownerGadget.getOwnerEntityId());
-        }
-        var properties = new Object2FloatOpenHashMap<String>();
-        for (var property : FightProperty.values()) {
-            var name = property.name();
-            var value = owner.getFightProperty(property);
-            properties.put(name, value);
-        }
+            var owner = ability.getOwner();
+            if (owner instanceof EntityClientGadget ownerGadget) {
+                owner = ownerGadget.getScene().getEntityById(ownerGadget.getOwnerEntityId());
+            }
+            var properties = new Object2FloatOpenHashMap<String>();
+            for (var property : FightProperty.values()) {
+                var name = property.name();
+                var value = owner.getFightProperty(property);
+                properties.put(name, value);
+            }
     
         properties.putAll(ability.getAbilitySpecials());
 
@@ -43,9 +43,6 @@ public final class ActionReviveAvatar extends AbilityActionHandler {
                 float maxHp = entityAvatar.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
                 float healAmount = maxHp * ratio;
 
-                
-                
-
                 // tthis should work, plz
                 entityAvatar.getWorld().broadcastPacket(
                     new PacketAvatarLifeStateChangeNotify(entityAvatar.getAvatar())
@@ -56,5 +53,5 @@ public final class ActionReviveAvatar extends AbilityActionHandler {
 
         });
         return true;
-            }
+    }
 }
