@@ -10,6 +10,7 @@ import emu.grasscutter.net.proto.ChangeHpReasonOuterClass.ChangeHpReason;
 import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
 import emu.grasscutter.net.proto.AbilityStringOuterClass.AbilityString;
 import emu.grasscutter.net.proto.DetailAbilityInfoOuterClass.DetailAbilityInfo;
+import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
 import emu.grasscutter.net.proto.EntityFightPropChangeReasonNotifyOuterClass.EntityFightPropChangeReasonNotify;
 import emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason;
 import java.util.*;
@@ -50,12 +51,22 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
             ChangeHpReason changeHpReason) {
         super(PacketOpcodes.EntityFightPropChangeReasonNotify);
 
-        EntityFightPropChangeReasonNotify proto =
+        var detailAbility = entity.getDetailAbilityInfo();
+        PropChangeDetailInfo detailInfo = null;
+        if (detailAbility != null) {
+            detailInfo = PropChangeDetailInfo.newBuilder()
+                .setDetailAbilityInfo(detailAbility)
+                .build();
+        }
+    
+
+        var proto =
                 EntityFightPropChangeReasonNotify.newBuilder()
                         .setEntityId(entity.getId())
                         .setPropType(prop.getId())
                         .setPropDelta(value)
                         .setReason(reason)
+                        .setDetailInfo(detailInfo)
                         .setChangeHpReason(changeHpReason)
                         .build();
 
@@ -99,18 +110,25 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
             PropChangeReason reason,
             ChangeHpDebtsReason changeHpDebts) {
         super(PacketOpcodes.EntityFightPropChangeReasonNotify);
-        
 
-        EntityFightPropChangeReasonNotify proto =
+        var detailAbility = entity.getDetailAbilityInfo();
+        PropChangeDetailInfo detailInfo = null;
+        if (detailAbility != null) {
+            detailInfo = PropChangeDetailInfo.newBuilder()
+                .setDetailAbilityInfo(detailAbility)
+                .build();
+        }
+
+        var proto =
                 EntityFightPropChangeReasonNotify.newBuilder()
                         .setEntityId(entity.getId())
                         .setPropType(prop.getId())
                         .setPropDelta(value)
                         .setPaidHpDebts(value)
                         .setReason(reason)
+                        .setDetailInfo(detailInfo)
                         .setChangeHpDebtsReason(changeHpDebts)
-                        .build();
-
+                        .build(); 
         this.setData(proto);
     }
             
