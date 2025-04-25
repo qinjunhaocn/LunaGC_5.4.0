@@ -11,6 +11,8 @@ import emu.grasscutter.game.ability.mixins.*;
 import emu.grasscutter.game.avatar.Avatar;
 
 import emu.grasscutter.net.proto.AbilityActionSummonOuterClass.AbilityActionSummon;
+import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
+import emu.grasscutter.net.proto.DetailAbilityInfoOuterClass.DetailAbilityInfo;
 import emu.grasscutter.game.entity.EntityAvatar;
 import emu.grasscutter.game.managers.stamina.Consumption;
 import emu.grasscutter.game.managers.stamina.ConsumptionType;
@@ -467,6 +469,20 @@ private void handleClearGlobalFloatValue(AbilityInvokeEntry invoke)
                             head.getInstancedAbilityId(),
                             head.getInstancedModifierId());
             return;
+        }
+        if (ability != null && target != null) {
+
+           
+            var data = ability.getData();
+            
+            var detailAbility = DetailAbilityInfo.newBuilder()
+                .setParentAbilityName(AbilityString.newBuilder().setStr(data.abilityName))
+                .setInstancedAbilityId(head.getInstancedAbilityId())
+                .setInstancedModifierId(head.getInstancedModifierId())
+                .setLocalId(head.getLocalId())
+                .build();
+            
+            target.setDetailAbilityInfo(detailAbility);
         }
 
         // Time to reach the handlers
