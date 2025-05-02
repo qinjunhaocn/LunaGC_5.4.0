@@ -226,7 +226,7 @@ public abstract class GameEntity {
             this.getScene().broadcastPacket(new PacketEntityFightPropUpdateNotify(this, FightProperty.FIGHT_PROP_CUR_HP_DEBTS));
             // Clear bond if is 0 debt left
             if (this.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP_DEBTS) > 0) {
-                this.getScene().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(this, FightProperty.FIGHT_PROP_CUR_HP_DEBTS, -toRepay,
+                this.getScene().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(this, FightProperty.FIGHT_PROP_CUR_HP_DEBTS, toRepay,
                                                         mute
                                                                 ? PropChangeReason.PROP_CHANGE_REASON_NONE
                                                                 : PropChangeReason.PROP_CHANGE_REASON_ABILITY,
@@ -234,7 +234,7 @@ public abstract class GameEntity {
                                                         ChangeHpDebtsReason.CHANGE_HP_DEBTS_PAY
                 ));
             } else {
-                this.getScene().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(this, FightProperty.FIGHT_PROP_CUR_HP_DEBTS, -toRepay,
+                this.getScene().broadcastPacket(new PacketEntityFightPropChangeReasonNotify(this, FightProperty.FIGHT_PROP_CUR_HP_DEBTS, toRepay,
                                                         mute
                                                                 ? PropChangeReason.PROP_CHANGE_REASON_NONE
                                                                 : PropChangeReason.PROP_CHANGE_REASON_ABILITY,
