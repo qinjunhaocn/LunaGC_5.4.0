@@ -40,7 +40,7 @@ public abstract class GameEntity {
     @Getter @Setter public int id;
     @Getter @Setter private SpawnDataEntry spawnEntry;
     @Setter private PropChangeDetailInfo propChangeDetailInfo;
-    @Setter private DetailAbilityInfo detailAbilityInfo;
+    @Getter @Setter private DetailAbilityInfo detailAbilityInfo;
 
     @Getter @Setter private int campId;
     @Getter @Setter private int campType;
