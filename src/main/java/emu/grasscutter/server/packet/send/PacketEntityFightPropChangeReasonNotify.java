@@ -10,7 +10,6 @@ import emu.grasscutter.net.proto.ChangeHpReasonOuterClass.ChangeHpReason;
 import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
 import emu.grasscutter.net.proto.AbilityStringOuterClass.AbilityString;
 import emu.grasscutter.net.proto.DetailAbilityInfoOuterClass.DetailAbilityInfo;
-import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
 import emu.grasscutter.net.proto.EntityFightPropChangeReasonNotifyOuterClass.EntityFightPropChangeReasonNotify;
 import emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason;
 import java.util.*;
@@ -127,7 +126,7 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
                         .setPaidHpDebts(value)
                         .setReason(reason)
                         .setDetailInfo(detailInfo)
-                        .setChangeHpDebtsReason(changeHpDebts)
+                        .setChangeHpDebts(changeHpDebts)
                         .build(); 
         this.setData(proto);
     }
