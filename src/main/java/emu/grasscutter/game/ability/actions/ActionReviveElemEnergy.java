@@ -22,18 +22,7 @@ public final class ActionReviveElemEnergy extends AbilityActionHandler {
 
         if (target instanceof EntityAvatar avatar) {
             float curEnergy = avatar.getFightProperty(avatar.getAvatar().getSkillDepot().getElementType().getCurEnergyProp());
-            float newEnergy = curEnergy; 
-
-            if (ratio < 0) {
-                if (avatar.getAvatar().getAvatarId() == 10000097) {
-                    newEnergy = curEnergy + ratio; 
-                } else {
-                    newEnergy = curEnergy - ratio;
-                }
-            } else if (ratio > 0) {
-                newEnergy = curEnergy + ratio;
-            }
-
+            float newEnergy = curEnergy + ratio; 
 
             avatar.getAvatar().setCurrentEnergy(avatar.getAvatar().getSkillDepot().getElementType().getCurEnergyProp(), newEnergy);
             avatar.getScene().broadcastPacket(new PacketEntityFightPropUpdateNotify(avatar, avatar.getAvatar().getSkillDepot().getElementType().getCurEnergyProp()));
