@@ -1,17 +1,14 @@
 # LunaGC-5.4.0
-## THIS IS THE ONLY PUBLIC PS WITH MOB SPAWNS OVER VERSION 3.2!! NATLAN AND FONTAINE ARE FILLED :3
+
+
+## This is possibly the only public PS with Mob spawns in Fontaine and Natlan
 ## A better, more functional version of the holy Grasscutter
-Old Discord https://discord.gg/8vSyTHVphj
-## Big update soon, probably..
-Please contribute actively to this repository
+Old Discord for LunaGC https://discord.gg/8vSyTHVphj (don't ask for support there, instead create an issue in this repository)
+Contribute if you want/can...
 
 # Setup Guide
 
-This guide is very minimal and contains steps to just get your server and client up and running.
-
-## You'll need to patch the game to even enter the game world (see below).
-
-## Read the handbook (found at the end of the file)
+This guide is very minimal and contains steps to just get your server and client up and running.  
 
 ## Main Requirements
 
@@ -166,7 +163,6 @@ Method 2:
 
 - find out
 
-### most new features are produced by manu's breeding cycle, please wait for next pregnancy
 ### fuck yuuki, fuck pedo-luna, fuck snooshen, fuck the jewish transgender person - manu
 
 ## Credit
