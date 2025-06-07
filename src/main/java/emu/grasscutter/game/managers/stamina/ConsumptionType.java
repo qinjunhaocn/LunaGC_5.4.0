@@ -28,6 +28,7 @@ public enum ConsumptionType {
     SKIFF(500),
     STANDBY(500),
     WALK(500);
+    NOTIFY(500);
 
     public final int amount;
 
