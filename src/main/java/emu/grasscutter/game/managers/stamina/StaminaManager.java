@@ -620,7 +620,7 @@ public class StaminaManager extends BasePlayerManager {
         return switch (this.currentState) {
             default -> new Consumption();
             case MOTION_STATE_FIGHT -> new Consumption(ConsumptionType.FIGHT, 500);
-            case MOTION_STATE_NOTIFY -> new Consumption(500);
+            case MOTION_STATE_NOTIFY -> new Consumption(ConsumptionType.NOTIFY);
         };
     }
 
