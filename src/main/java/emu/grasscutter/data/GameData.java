@@ -440,6 +440,10 @@ public final class GameData {
             new Int2ObjectOpenHashMap<>();
 
     @Getter
+    private static final Int2ObjectMap<VehicleData> vehicleDataMap =
+            new Int2ObjectOpenHashMap<>();
+
+    @Getter
     private static final Int2ObjectMap<WeaponCurveData> weaponCurveDataMap =
             new Int2ObjectOpenHashMap<>();
 
