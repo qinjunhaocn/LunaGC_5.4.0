@@ -10,6 +10,7 @@ import emu.grasscutter.net.proto.ChangeHpReasonOuterClass.ChangeHpReason;
 import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
 import emu.grasscutter.net.proto.AbilityStringOuterClass.AbilityString;
 import emu.grasscutter.net.proto.DetailAbilityInfoOuterClass.DetailAbilityInfo;
+import emu.grasscutter.net.proto.PropChangeDetailInfoOuterClass.PropChangeDetailInfo;
 import emu.grasscutter.net.proto.EntityFightPropChangeReasonNotifyOuterClass.EntityFightPropChangeReasonNotify;
 import emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason;
 import java.util.*;
@@ -65,7 +66,7 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
                         .setPropType(prop.getId())
                         .setPropDelta(value)
                         .setReason(reason)
-                        .setDetailInfo(detailInfo)
+                        .setDetailInfo(detailInfo != null ? detailInfo : PropChangeDetailInfo.getDefaultInstance())  // Only set if not null
                         .setChangeHpReason(changeHpReason)
                         .build();
 
@@ -90,6 +91,7 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
     public PacketEntityFightPropChangeReasonNotify(
             GameEntity entity, FightProperty prop, Float value, ChangeEnergyReason reason) {
         super(PacketOpcodes.EntityFightPropChangeReasonNotify);
+
 
         EntityFightPropChangeReasonNotify proto =
                 EntityFightPropChangeReasonNotify.newBuilder()
@@ -125,8 +127,8 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
                         .setPropDelta(value)
                         .setPaidHpDebts(value)
                         .setReason(reason)
-                        .setDetailInfo(detailInfo)
-                        .setChangeHpDebts(changeHpDebts)
+                        .setDetailInfo(detailInfo != null ? detailInfo : PropChangeDetailInfo.getDefaultInstance())  // Only set if not null
+                        .setChangeHpDebtsReason(changeHpDebts)
                         .build(); 
         this.setData(proto);
     }
@@ -136,12 +138,21 @@ public class PacketEntityFightPropChangeReasonNotify extends BasePacket {
         GameEntity entity, FightProperty prop, Float value, PropChangeReason reason, ChangeEnergyReason energyReason) {
     super(PacketOpcodes.EntityFightPropChangeReasonNotify);
 
+    var detailAbility = entity.getDetailAbilityInfo();
+    PropChangeDetailInfo detailInfo = null;
+    if (detailAbility != null) {
+        detailInfo = PropChangeDetailInfo.newBuilder()
+            .setDetailAbilityInfo(detailAbility)
+            .build();
+    }
+
     EntityFightPropChangeReasonNotify proto =
             EntityFightPropChangeReasonNotify.newBuilder()
                     .setEntityId(entity.getId())
                     .setPropType(prop.getId())
                     .setPropDelta(value)
                     .setReason(reason)
+                    .setDetailInfo(detailInfo != null ? detailInfo : PropChangeDetailInfo.getDefaultInstance())  // Only set if not null
                     .setChangeEnergyReason(energyReason)
                     .build();
 
