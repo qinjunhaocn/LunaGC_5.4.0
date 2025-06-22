@@ -3,7 +3,7 @@
 
 ## This is possibly the only public PS with Mob spawns in Fontaine and Natlan
 ## A better, more functional version of the holy Grasscutter
-Old Discord for LunaGC https://discord.gg/8vSyTHVphj (don't ask for support there, instead create an issue in this repository)
+Old Discord for LunaGC https://discord.gg/7D5gkyJR5Y (don't ask for support there, instead create an issue in this repository)
 
 Contribute if you want/can...
 
