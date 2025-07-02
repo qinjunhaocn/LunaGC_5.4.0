@@ -19,7 +19,7 @@ jobs:
 
     - name: Change directory and make gradlew executable
       run: |
-        cd LunaGC_5.0.0
+        cd LunaGC_5.4.0
         chmod +x gradlew
 
     - name: Build with Gradle
